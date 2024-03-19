@@ -5,7 +5,7 @@ import { UserAuth } from "../../../context/AuthContext";
 
 
 const Login = () => {
-  const { emailPasswordSignIn } = UserAuth();
+  const { emailPasswordSignIn, user, logOut } = UserAuth();
   const [inputs, setInputs] = useState({
     mail: "",
     pass: "",
@@ -66,6 +66,7 @@ const Login = () => {
 
   return (
     <>
+      {!user &&
       <article id="singIn">
         <div>
           <input type="email" name="mail" id="log" placeholder="Introduce tu mail" onChange={handleInputs} style={{
@@ -89,6 +90,13 @@ const Login = () => {
           <button onClick={handleSubmit}>Login</button>
         </div>
       </article>
+      }
+      {user &&
+      <article>
+        <h2>Bienvenido {user.email}</h2>
+        <button><Link  to='/logout'>LOG OUT</Link></button> 
+      </article>
+      }
     </>
   );
 };
