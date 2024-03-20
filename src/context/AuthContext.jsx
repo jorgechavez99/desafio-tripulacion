@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
-        console.log('Usuario ha iniciado sesión:', user);
+        // console.log('Usuario ha iniciado sesión:', user);
       })
       .catch((error) => {
         alert("Credenciales incorrectas. Por favor, verifica tu correo electrónico y contraseña e inténtalo nuevamente.")
@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
-        console.log('Usuario se ha registrado:', user);
+        // console.log('Usuario se ha registrado:', user);
       })
       .catch((error) => {
 
@@ -65,7 +65,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log('Usuario', currentUser);
+      // console.log('Usuario', currentUser);
     });
     return () => {
       unsubscribe();

@@ -3,8 +3,8 @@ import { UserAuth } from "../../../context/AuthContext";
 
 const Dashboard = () => {
   const { user, rol } = UserAuth();
-  console.log("Esta funcionando el rol?", rol)
-  console.log("Asegurando que en dashboard lee user", user)
+  // console.log("Esta funcionando el rol?", rol)
+  // console.log("Asegurando que en dashboard lee user", user)
   return (
     <>
       {user &&

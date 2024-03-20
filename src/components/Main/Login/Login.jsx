@@ -25,7 +25,7 @@ const Login = () => {
   },[])
 
   useEffect(()=>{
-    console.log(validMails)
+    // console.log(validMails)
       
   },[validMails])
 
@@ -77,7 +77,7 @@ const Login = () => {
       alert("Su mail no está registrado en nuestra base de datos")
     } else {
       setRol(validMails[buscarPorMail(validMails, inputs.mail)].admin);
-      console.log(validMails[buscarPorMail(validMails, inputs.mail)].admin)
+      // console.log(validMails[buscarPorMail(validMails, inputs.mail)].admin)
       try {emailPasswordSignIn(inputs.mail, inputs.pass);
       
       } catch(error){
@@ -111,7 +111,7 @@ const Login = () => {
             cursor: 'pointer'
           }}>👀</span>
         </div>
-        <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p>
+        {/* <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p> */}
         <div>
           <button onClick={handleSubmit}>Login</button>
         </div>
