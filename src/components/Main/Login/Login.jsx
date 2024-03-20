@@ -2,32 +2,18 @@ import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { UserAuth } from "../../../context/AuthContext";
-import {collection, getDocs} from "firebase/firestore"
-import { firestore } from "../../../config/firebaseAuth";
+
 
 
 const Login = () => {
-  const { emailPasswordSignIn, user, rol, setRol } = UserAuth();
+  const { emailPasswordSignIn, user, rol, validMails} = UserAuth();
   const [inputs, setInputs] = useState({
     mail: "",
     pass: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [validMails, setValidMails] = useState({});
 
 
-  //LLAMADA A FIRESTORE PARA TRAER LA LISTA DE MAILS AITORIZADOS
-  useEffect(()=>{
-    const queryCollection = collection(firestore,"users")
-    getDocs(queryCollection)
-      .then(res => setValidMails(res.docs.map(user => ({...user.data()}))))
-      
-  },[])
-
-  useEffect(()=>{
-    console.log(validMails)
-      
-  },[validMails])
 
 
   const handleInputs = (e) => {
@@ -74,11 +60,11 @@ const Login = () => {
     } else if (validarPassword(inputs.pass) == false) {
       alert("La contraseña debe contener al menos 6 caracteres, un número y una mayúscula")
     } else if(buscarPorMail(validMails, inputs.mail) == -1){
+      
       alert("Su mail no está registrado en nuestra base de datos")
     } else {
-      setRol(validMails[buscarPorMail(validMails, inputs.mail)].admin);
+      console.log("Validmails desde LOgin: ", validMails)
       try {emailPasswordSignIn(inputs.mail, inputs.pass);
-      
       } catch(error){
         alert("Mail o contraseña incorrectas")
       }
@@ -110,7 +96,7 @@ const Login = () => {
             cursor: 'pointer'
           }}>👀</span>
         </div>
-        <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p>
+        {/* <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p> */}
         <div>
           <button onClick={handleSubmit}>Login</button>
         </div>

@@ -9,11 +9,14 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../src/config/firebaseAuth";
+import {collection, getDocs} from "firebase/firestore";
+import { firestore } from "../../src/config/firebaseAuth";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [validMails, setValidMails] = useState();
+  const [user, setUser] = useState();
   const [rol, setRol] = useState();
   
   const googleSignIn = () => {
@@ -62,6 +65,12 @@ export const AuthContextProvider = ({ children }) => {
     
   };
 
+  useEffect(()=>{
+    const queryCollection = collection(firestore,"users")
+    getDocs(queryCollection)
+      .then(res => setValidMails(res.docs.map(user => ({...user.data()}))))           
+  },[])
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -72,8 +81,22 @@ export const AuthContextProvider = ({ children }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (validMails && user && validMails.length > 0) {
+      const userMail = user.email;
+      const userIndex = validMails.findIndex(mail => mail.mail === userMail);
+      if (userIndex !== -1) {
+        setRol(validMails[userIndex].admin);
+      }
+
+    }
+  }, [validMails]);
+
+
+
+
   return (
-    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, setRol,user, rol}}>
+    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, validMails, user, rol}}>
       {children}
     </AuthContext.Provider>
   );
