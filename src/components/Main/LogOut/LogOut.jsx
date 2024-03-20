@@ -21,7 +21,7 @@ const LogOut = () => {
   return(
     <section>
       <h2>¡Hasta Pronto!</h2>
-      <p>Nos ha encantado verte por aquí. Ojalá te hayamos ayudado a <b>AHORRAR AL REPOSTAR</b> </p>
+      <p>Nos ha encantado verte por aquí. Ojalá te hayamos ayudado con tu vending</p>
       <button><Link  to='/'>INICIO</Link></button>
     </section>
   );

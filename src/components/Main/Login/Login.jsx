@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { UserAuth } from "../../../context/AuthContext";
+import {collection, getDocs} from "firebase/firestore"
+import { firestore } from "../../../config/firebaseAuth";
 
 
 const Login = () => {
-  const { emailPasswordSignIn, user, logOut } = UserAuth();
+  const { emailPasswordSignIn, user, rol, setRol } = UserAuth();
   const [inputs, setInputs] = useState({
     mail: "",
     pass: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [validMails, setValidMails] = useState({});
 
+
+  //LLAMADA A FIRESTORE PARA TRAER LA LISTA DE MAILS AITORIZADOS
+  useEffect(()=>{
+    const queryCollection = collection(firestore,"users")
+    getDocs(queryCollection)
+      .then(res => setValidMails(res.docs.map(user => ({...user.data()}))))
+      
+  },[])
+
+  useEffect(()=>{
+    console.log(validMails)
+      
+  },[validMails])
 
 
   const handleInputs = (e) => {
@@ -42,6 +58,11 @@ const Login = () => {
     return regex.test(pasword);
   };
 
+  function buscarPorMail(array, correo) {
+    //comprobar si el mail introducido figura en la bade de datos como autorizado
+    return array.findIndex(objeto => objeto.mail === correo);
+  }
+
   //Mostrar contraseña y ocultar
   const handleTogglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -52,8 +73,12 @@ const Login = () => {
       alert("El formato del mail no es correcto");
     } else if (validarPassword(inputs.pass) == false) {
       alert("La contraseña debe contener al menos 6 caracteres, un número y una mayúscula")
+    } else if(buscarPorMail(validMails, inputs.mail) == -1){
+      alert("Su mail no está registrado en nuestra base de datos")
     } else {
-      try {emailPasswordSignIn(inputs.mail, inputs.pass)
+      setRol(validMails[buscarPorMail(validMails, inputs.mail)].admin);
+      try {emailPasswordSignIn(inputs.mail, inputs.pass);
+      
       } catch(error){
         alert("Mail o contraseña incorrectas")
       }
@@ -94,6 +119,9 @@ const Login = () => {
       {user &&
       <article>
         <h2>Bienvenido {user.email}</h2>
+        {rol &&
+         <p>Mi rol es admin?   {rol}</p>
+        }
         <button><Link  to='/logout'>LOG OUT</Link></button> 
       </article>
       }

@@ -14,6 +14,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [rol, setRol] = useState();
   
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -72,7 +73,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, user }}>
+    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, setRol,user, rol}}>
       {children}
     </AuthContext.Provider>
   );
