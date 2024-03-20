@@ -77,6 +77,7 @@ const Login = () => {
       alert("Su mail no está registrado en nuestra base de datos")
     } else {
       setRol(validMails[buscarPorMail(validMails, inputs.mail)].admin);
+      console.log(validMails[buscarPorMail(validMails, inputs.mail)].admin)
       try {emailPasswordSignIn(inputs.mail, inputs.pass);
       
       } catch(error){
@@ -121,8 +122,10 @@ const Login = () => {
         <h2>Bienvenido {user.email}</h2>
         {rol &&
          <p>Mi rol es admin?   {rol}</p>
+        
         }
         <button><Link  to='/logout'>LOG OUT</Link></button> 
+        <button><Link  to='/dashboard'>DASHBOARD</Link></button> 
       </article>
       }
     </>

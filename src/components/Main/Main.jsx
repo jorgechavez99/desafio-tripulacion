@@ -8,6 +8,8 @@ const Main = () => {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/logout" element={<LogOut />} />
+      <Route path="/*" element={<Navigate to={"/"} />} />
     </Routes>
   </main>;
 };
