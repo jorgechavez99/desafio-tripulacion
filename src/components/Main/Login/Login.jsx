@@ -121,11 +121,9 @@ const Login = () => {
       <article>
         <h2>Bienvenido {user.email}</h2>
         {rol &&
-         <p>Mi rol es admin?   {rol}</p>
+         <p>Mi rol es admin? {rol}</p>
         
         }
-        <button><Link  to='/logout'>LOG OUT</Link></button> 
-        <button><Link  to='/dashboard'>DASHBOARD</Link></button> 
       </article>
       }
     </>
