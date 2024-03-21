@@ -11,7 +11,7 @@ const NavBar = () => {
     <ul>
      
       <li>
-        <NavLink to="/">Dashboard</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
     {rol &&
       <li>
