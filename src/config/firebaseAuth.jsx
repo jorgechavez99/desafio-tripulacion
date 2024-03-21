@@ -1,7 +1,7 @@
-
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth";
+import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAsEK11v54-g-uiW_MnXoaiFuT_eGmJVos",
   authDomain: "umbrellas-smart-auth.firebaseapp.com",
@@ -12,9 +12,12 @@ const firebaseConfig = {
   measurementId: "G-RZRCL8BRPS"
 };
 
-
-
-// Initialize Firebase
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const firestore = getFirestore(app);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+
+// Configura la persistencia de la sesión de usuario
+setPersistence(auth, browserSessionPersistence);
+
+export { auth, firestore };
