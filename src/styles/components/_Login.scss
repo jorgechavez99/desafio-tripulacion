@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+// .container-color {
+//  background-color: ;
+// }
+
+.imagen {
+    width: 100%;
+}
+
+.cuerda {
+    transform: rotate(90deg);
+    height: 100%;
+}
