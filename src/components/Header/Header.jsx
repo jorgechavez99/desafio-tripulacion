@@ -1,7 +1,19 @@
 import React from "react";
+import NavBar from "./NavBar/NavBar";
+import { UserAuth } from "../../context/AuthContext";
 
 const Header = () => {
-  return <div>Header</div>;
+  const { user, rol } = UserAuth();
+
+  return (
+    <>
+      <div>Header</div>
+      
+      {user && 
+      <NavBar />
+      }
+    </>
+  );
 };
 
 export default Header;
