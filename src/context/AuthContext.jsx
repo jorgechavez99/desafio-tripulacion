@@ -14,6 +14,7 @@ import { firestore } from "../../src/config/firebaseAuth";
 
 const AuthContext = createContext();
 
+
 export const AuthContextProvider = ({ children }) => {
   const [validMails, setValidMails] = useState();
   const [user, setUser] = useState();
@@ -96,7 +97,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, validMails, user, rol}}>
+    <AuthContext.Provider value={{ googleSignIn, emailPasswordSignIn, emailPasswordSignUp, logOut, resetPassword, validMails, setValidMails, user, rol}}>
       {children}
     </AuthContext.Provider>
   );
