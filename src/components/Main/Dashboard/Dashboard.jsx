@@ -9,6 +9,7 @@ const Dashboard = () => {
     <>
       {user &&
         <section>
+           <h2>Bienvenido {user.email}</h2>
           <p>Estas en el DASHBOARD</p>
           {rol &&
             <p>Eres rol admin   {rol}</p>
