@@ -38,7 +38,7 @@ const Login = () => {
 
   function validarPassword(pasword) {
     // Expresión regular para validar la contraseña
-    var regex = /^.{6,}$/;
+    var regex = /^.{8,}$/;
 
     // Comprobar si la contraseña coincide con la expresión regular
     return regex.test(pasword);

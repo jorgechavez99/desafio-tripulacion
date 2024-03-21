@@ -90,7 +90,7 @@ export const AuthContextProvider = ({ children }) => {
       }
 
     }
-  }, [validMails]);
+  }, [validMails, user]);
 
 
 
