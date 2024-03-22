@@ -1,16 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import * as dotenv from 'dotenv'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAsEK11v54-g-uiW_MnXoaiFuT_eGmJVos",
-  authDomain: "umbrellas-smart-auth.firebaseapp.com",
-  projectId: "umbrellas-smart-auth",
-  storageBucket: "umbrellas-smart-auth.appspot.com",
-  messagingSenderId: "853050541221",
-  appId: "1:853050541221:web:e62a9991c573e19420394c",
-  measurementId: "G-RZRCL8BRPS"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
+
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
