@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import * as dotenv from 'dotenv'
+
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
