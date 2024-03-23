@@ -9,7 +9,6 @@ const Login = () => {
     mail: "",
     pass: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputs = (e) => {
     const { name, value } = e.target;
@@ -42,11 +41,6 @@ const Login = () => {
     return array.findIndex((objeto) => objeto.mail === correo);
   }
 
-  //Mostrar contraseña y ocultar
-  const handleTogglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-
   function handleSubmit() {
     if (validarEmail(inputs.mail) == false) {
       alert("El formato del mail no es correcto");
@@ -63,36 +57,36 @@ const Login = () => {
       } catch (error) {
         alert("Mail o contraseña incorrectas");
       }
-      // setInputs({
-      //   mail: "",
-      //   pass: "",
-      // });
     }
   }
 
   return (
     <>
-      <section className="main-auth-container">
-        <article className="left-container">
-          <div className="logo-container">
-            <img id="main-logo" src="assets/umbrella-morado-icono.webp" alt="main-logo" />
-            <img id="text-logo" src="assets/logo-umbrella-blanco.webp" alt="main-logo" />
+    { user ? <></> :
+    <>
+    <section className="main-auth-container">
+      <article className="left-container">
+        <div className="logo-container">
+          <img id="main-logo" src="assets/umbrella-morado-icono.webp" alt="main-logo" />
+          <img id="text-logo" src="assets/logo-umbrella-blanco.webp" alt="main-logo" />
+        </div>
+      </article>
+      <article className="right-container">
+        <div className="content-container">
+          <h1>FOR THE EVERY DAY RAIN</h1>
+          <div className="login-container">
+            <label htmlFor="email">Usuario</label>
+            <input id="email" type="text" placeholder="info@ejemplo.com" onChange={handleInputs} />
+            <label htmlFor="password">Contraseña</label>
+            <input id="password" type="password" placeholder="Contraseña" onChange={handleInputs} />
+            <Link to={"/password-reset"}>¿Contraseña olvidada?</Link>
+            <button onClick={handleSubmit}>LOGIN</button>
           </div>
-        </article>
-        <article className="right-container">
-          <div className="content-container">
-            <h1>FOR THE EVERY DAY RAIN</h1>
-            <div className="login-container">
-              <label htmlFor="email">Usuario</label>
-              <input id="email" type="text" placeholder="info@ejemplo.com" />
-              <label htmlFor="password">Contraseña</label>
-              <input id="password" type="text" placeholder="Contraseña" />
-              <Link to={"/"}>¿Contraseña olvidada?</Link>
-              <button>LOGIN</button>
-            </div>
-          </div>
-        </article>
-      </section>
+        </div>
+      </article>
+    </section>
+  </>
+    }
     </>
   );
 };
