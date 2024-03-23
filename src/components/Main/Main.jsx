@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
+import PaswordReset from "./PasswordReset";
 import Dashboard from "./Dashboard";
 import LogOut from "./LogOut";
 import Users from "./Users/Users";
@@ -14,6 +15,7 @@ const Main = () => {
         {!user ? (
           <>
             <Route path="/" element={<Login />} />
+            <Route path="/password-reset" element={<PaswordReset />} />
             <Route path="/*" element={<Navigate to={"/"} />} />
             
           </>
