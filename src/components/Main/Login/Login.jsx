@@ -72,80 +72,27 @@ const Login = () => {
 
   return (
     <>
-      <div id="contenedorGeneral" className="container">
-        <div className="container-color">
-        <div id="contenedorLogos" className="logo-container">
-          <div>
-            <img className="imagen"
-              src="src/assets/umbrella-morado-icono.webp"
-              alt="logo de Umbrella"
-            />
+      <section className="main-auth-container">
+        <article className="left-container">
+          <div className="logo-container">
+            <img id="main-logo" src="assets/umbrella-morado-icono.webp" alt="main-logo" />
+            <img id="text-logo" src="assets/logo-umbrella-blanco.webp" alt="main-logo" />
           </div>
-          <div>
-            <img className="imagen"
-              src="src/assets/logo-umbrella-blanco.webp"
-              alt="Umbrella Station, un refugio nutritivo"
-            />
+        </article>
+        <article className="right-container">
+          <div className="content-container">
+            <h1>FOR THE EVERY DAY RAIN</h1>
+            <div className="login-container">
+              <label htmlFor="email">Usuario</label>
+              <input id="email" type="text" placeholder="info@ejemplo.com" />
+              <label htmlFor="password">Contraseña</label>
+              <input id="password" type="text" placeholder="Contraseña" />
+              <Link to={"/"}>¿Contraseña olvidada?</Link>
+              <button>LOGIN</button>
+            </div>
           </div>
-        </div>
-        </div>
-        <div className="cuerda">
-          <img className="imagen"
-            src="src/assets/lazo-bakery.webp"
-            alt="lazo de cuerda, decorativo"
-          />
-        </div>
-        {!user && (
-          <article id="singIn">
-            <div>
-              <input
-                type="email"
-                name="mail"
-                id="log"
-                placeholder="Introduce tu mail"
-                onChange={handleInputs}
-                style={{
-                  width: "200px",
-                  height: "25px",
-                  marginBottom: "15px",
-                }}
-              />
-            </div>
-            <div>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="pass"
-                className="log"
-                placeholder="Contraseña"
-                onChange={handleInputs}
-                style={{
-                  width: "178px",
-                  height: "25px",
-                  marginRight: "5px",
-                }}
-              />
-              <span
-                onClick={handleTogglePasswordVisibility}
-                style={{
-                  cursor: "pointer",
-                }}
-              >
-                👀
-              </span>
-            </div>
-            {/* <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p> */}
-            <div>
-              <button onClick={handleSubmit}>Login</button>
-            </div>
-          </article>
-        )}
-        {user && (
-          <article>
-            <h2>Bienvenido {user.email}</h2>
-            {rol && <p>Mi rol es admin? {rol}</p>}
-          </article>
-        )}
-      </div>
+        </article>
+      </section>
     </>
   );
 };
