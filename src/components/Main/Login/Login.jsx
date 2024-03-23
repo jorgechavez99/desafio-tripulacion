@@ -63,7 +63,7 @@ const Login = () => {
       
       alert("Su mail no está registrado en nuestra base de datos")
     } else {
-      console.log("Validmails desde LOgin: ", validMails)
+      
       try {emailPasswordSignIn(inputs.mail, inputs.pass);
       } catch(error){
         alert("Mail o contraseña incorrectas")
@@ -96,7 +96,7 @@ const Login = () => {
             cursor: 'pointer'
           }}>👀</span>
         </div>
-        {/* <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p> */}
+        <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p>
         <div>
           <button onClick={handleSubmit}>Login</button>
         </div>
@@ -106,7 +106,7 @@ const Login = () => {
       <article>
         <h2>Bienvenido {user.email}</h2>
         {rol &&
-         <p>Mi rol es admin? {rol}</p>
+         <p>Mi rol es admin {rol}</p>
         
         }
       </article>
