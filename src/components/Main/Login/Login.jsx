@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { UserAuth } from "../../../context/AuthContext";
-
-
 
 const Login = () => {
   const { emailPasswordSignIn, user, rol, validMails} = UserAuth();
@@ -11,10 +9,6 @@ const Login = () => {
     mail: "",
     pass: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
-
-
-
 
   const handleInputs = (e) => {
     const { name, value } = e.target;
@@ -49,11 +43,6 @@ const Login = () => {
     return array.findIndex(objeto => objeto.mail === correo);
   }
 
-  //Mostrar contraseña y ocultar
-  const handleTogglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-
   function handleSubmit() {
     if (validarEmail(inputs.mail) == false) {
       alert("El formato del mail no es correcto");
@@ -68,52 +57,36 @@ const Login = () => {
       } catch(error){
         alert("Mail o contraseña incorrectas")
       }
-      // setInputs({
-      //   mail: "",
-      //   pass: "",
-      // });
     }
   }
 
   return (
     <>
       {!user &&
-      <article id="singIn">
-        <div>
-          <input type="email" name="mail" id="log" placeholder="Introduce tu mail" onChange={handleInputs} style={{
-          width: '200px',
-          height: '25px',
-          marginBottom: '15px',
-        }}/>
-        </div>
-        <div>
-          <input type={showPassword ? "text" : "password"} name="pass" className="log" placeholder="Contraseña" onChange={handleInputs}  style={{
-          width: '178px',
-          height: '25px',
-          marginRight: '5px'
-        }}/>
-          <span onClick={handleTogglePasswordVisibility} style={{
-            cursor: 'pointer'
-          }}>👀</span>
-        </div>
-        <p>No recuerdo mi contraseña. <Link to='/password-reset'>Recuperar</Link></p>
-        <div>
-          <button onClick={handleSubmit}>Login</button>
-        </div>
-      </article>
-      }
-      {user &&
-      <article>
-        <h2>Bienvenido {user.email}</h2>
-        {rol &&
-         <p>Mi rol es admin {rol}</p>
-        
-        }
-      </article>
+      <section className="main-auth-container">
+        <article className="left-container">
+          <div className="logo-container">
+            <img id="main-logo" src="assets/umbrella-morado-icono.webp" alt="main-logo" />
+            <img id="text-logo" src="assets/logo-umbrella-blanco.webp" alt="main-logo" />
+          </div>
+        </article>
+        <article className="right-container">
+          <div className="content-container">
+            <h1>FOR THE EVERY DAY RAIN</h1>
+            <div className="login-container">
+              <label htmlFor="email">Usuario</label>
+              <input type="email" name="mail" id="email" placeholder="info@ejemplo.com" onChange={handleInputs} />
+              <label htmlFor="password">Contraseña</label>
+              <input type="password" id="password" name="pass" className="log" placeholder="Contraseña" onChange={handleInputs} />
+              <Link to={"/password-reset"}>¿Contraseña olvidada?</Link>
+              <button onClick={handleSubmit}>LOGIN</button>
+            </div>
+          </div>
+        </article>
+      </section>
       }
     </>
   );
 };
 
 export default Login;
-

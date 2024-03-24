@@ -10,7 +10,9 @@ const Main = () => {
   const { user, rol } = UserAuth();
 
   return (
-    <main>
+    <main className="container">
+
+
       <Routes>
         {!user ? (
           <>

@@ -7,10 +7,13 @@ const Header = () => {
 
   return (
     <>
-      <div>Header</div>
+      
       
       {user && 
+      <>
+      <div>Header</div>
       <NavBar />
+      </>
       }
     </>
   );
