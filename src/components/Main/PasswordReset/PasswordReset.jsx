@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const PasswordReset = () => {
-  const { resetPassword, validMails} = UserAuth();
+  const { resetPassword, validMails } = UserAuth();
   const [email, setEmail] = useState('');
   const [resetSent, setResetSent] = useState(false);
 
@@ -24,41 +24,55 @@ const PasswordReset = () => {
   }
 
   const handleResetPassword = async () => {
-    if(validarEmail(email) && buscarPorMail(validMails, email) !== -1){
+    if (validarEmail(email) && buscarPorMail(validMails, email) !== -1) {
       setResetSent(await resetPassword(email))
     } else {
       alert("Su email no figura en la base de datos")
     }
   };
-  
+
 
   return (
-    <section>
-      <h2>Recuperar Contraseña</h2>
-      <article id="reset">
-        {resetSent ? (
-          <>
-          <p>Se ha enviado un correo electrónico a <b>{email}</b> con instrucciones para restablecer tu contraseña.</p>
-          <button ><Link to ="/" >Volver</Link></button>
-          </>
-        ) : (
-          <>
-            <input
-              type="text"
-              placeholder="Correo electrónico"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                width: '200px',
-                height: '25px',
-                marginBottom: '15px',
-              }}
-            />
-            <button onClick={handleResetPassword}>Enviar correo de recuperación</button>
-          </>
-        )}
-      </article>
-    </section>
+    <>
+      <section className="main-auth-container">
+        <article className="left-container">
+          <div className="logo-container">
+            <img id="main-logo" src="assets/umbrella-morado-icono.webp" alt="main-logo" />
+            <img id="text-logo" src="assets/logo-umbrella-blanco.webp" alt="main-logo" />
+          </div>
+        </article>
+        <article className="right-container">
+          <div className="content-container">
+            <h1>FOR THE EVERY DAY RAIN</h1>
+            <div className="login-container">
+              <h2>Recuperar Contraseña</h2>
+              {resetSent ? (
+                <>
+                  <p>Se ha enviado un correo electrónico a <b>{email}</b> con instrucciones para restablecer tu contraseña.</p>
+                  <button id="volver-button"><Link to="/">VOLVER</Link></button>
+                </>
+              ) : (
+                <>
+                  <label htmlFor="email">Usuario</label>
+                  <input
+                    name="mail" 
+                    id="email"
+                    type="email"
+                    placeholder="info@ejemplo.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button onClick={handleResetPassword}>ENVIAR</button>
+                  <button id="volver-button"><Link to="/">VOLVER</Link></button>
+                </>
+              )}
+
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </>
   );
 };
 
