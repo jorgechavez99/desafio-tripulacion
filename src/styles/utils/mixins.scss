@@ -56,7 +56,6 @@
             justify-content: center;
     
             & > .content-container {
-                padding: 5%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -89,6 +88,14 @@
                         font-size: 1.2rem;
                         margin-bottom: 3.5vh;
                     }
+
+                    & > input:hover {
+                        border: 2px solid $color-primario;
+                    }
+
+                    & > input:focus {
+                        outline: none;
+                    }
                     
                     & > a {
                         text-decoration: none;
@@ -97,6 +104,10 @@
                         font-size: 1.2rem;
                         align-self: flex-end;
                         margin: 1.5vh 2vh 2.5vh 0vh;
+                    }
+
+                    & > a:active {
+                        color: $color-primario;
                     }
     
                     & > a:hover {
@@ -109,10 +120,18 @@
                         font-weight: 600;
                         font-size: 1.3rem;
                         border: none;
-                        border-radius: 2vw;
+                        border-radius: 30px;
                         padding-top: 1.5vh;
                         padding-bottom: 1.5vh;
                         cursor: pointer;
+                    }
+
+                    & > button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    & > button:active {
+                        background-color: $color-boton-active;
                     }
                 }
             }
@@ -165,7 +184,6 @@
             justify-content: center;
     
             & > .content-container {
-                padding: 5%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -198,6 +216,14 @@
                         font-size: 1.2rem;
                         margin-bottom: 3.5vh;
                     }
+
+                    & > input:hover {
+                        border: 2px solid $color-primario;
+                    }
+
+                    & > input:focus {
+                        outline: none;
+                    }
                     
                     & > a {
                         text-decoration: none;
@@ -206,6 +232,10 @@
                         font-size: 1.2rem;
                         align-self: flex-end;
                         margin: 1.5vh 2vh 2.5vh 0vh;
+                    }
+
+                    & > a:active {
+                        color: $color-primario;
                     }
     
                     & > a:hover {
@@ -218,10 +248,18 @@
                         font-weight: 600;
                         font-size: 1.3rem;
                         border: none;
-                        border-radius: 2vw;
+                        border-radius: 30px;
                         padding-top: 1.5vh;
                         padding-bottom: 1.5vh;
                         cursor: pointer;
+                    }
+
+                    & > button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    & > button:active {
+                        background-color: $color-boton-active;
                     }
                 }
             }
@@ -274,7 +312,6 @@
             justify-content: center;
     
             & > .content-container {
-                padding: 5%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -307,6 +344,14 @@
                         font-size: 4vw;
                         margin-bottom: 7.5vw;
                     }
+
+                    & > input:hover {
+                        border: 2px solid $color-primario;
+                    }
+
+                    & > input:focus {
+                        outline: none;
+                    }
                     
                     & > a {
                         text-decoration: none;
@@ -315,6 +360,10 @@
                         font-size: 4vw;
                         align-self: flex-end;
                         margin: 3vw 4vw 5vw 0vh;
+                    }
+
+                    & > a:active {
+                        color: $color-primario;
                     }
     
                     & > a:hover {
@@ -327,10 +376,18 @@
                         font-weight: 600;
                         font-size: 4.1vw;
                         border: none;
-                        border-radius: 2vw;
+                        border-radius: 30px;
                         padding-top: 3.5vw;
                         padding-bottom: 3.5vw;
                         cursor: pointer;
+                    }
+
+                    & > button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    & > button:active {
+                        background-color: $color-boton-active;
                     }
                 }
             }
