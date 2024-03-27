@@ -5,8 +5,7 @@ import BarChart from "../BarChart/BarChart";
 
 const Dashboard = () => {
   const { user, rol } = UserAuth();
-  // console.log("Esta funcionando el rol?", rol)
-  // console.log("Asegurando que en dashboard lee user", user)
+
 // transformJson()
   
   return (
