@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserAuth } from "../../../context/AuthContext";
 import BarChart from "../BarChart/BarChart";
-// import { transformJson } from "../../../helpers/transformJson";
 
 const Dashboard = () => {
   const { user, rol } = UserAuth();
-
-// transformJson()
   
   return (
     <>
