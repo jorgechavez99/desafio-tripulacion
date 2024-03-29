@@ -4,6 +4,10 @@ import PaswordReset from "./PasswordReset";
 import Dashboard from "./Dashboard";
 import Users from "./Users/Users";
 import { UserAuth } from "../../context/AuthContext";
+import Segmentacion from "./Clientes/Segmentacion";
+import General from "./Ventas/General";
+import Analiticas from "./Ventas/Analiticas";
+import Lista from "./Clientes/Lista";
 
 const Main = () => {
   const { user, rol } = UserAuth();
@@ -30,6 +34,10 @@ const Main = () => {
           <>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/ventas/general" element={<General/>} />
+            <Route path="/ventas/analiticas" element={<Analiticas/>} />
+            <Route path="/cliente/segmentacion" element={<Segmentacion/>} />
+            <Route path="/cliente/lista" element={<Lista/>} />
             <Route path="/*" element={<Navigate to={"/dashboard"} />} />
           </>
         )}
