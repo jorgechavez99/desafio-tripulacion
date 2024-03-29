@@ -3,6 +3,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Main from "./components/Main";
 import Header from "./components/Header/Header";
 import { AsyncProvider } from "./context/asincContext/AsyncProvider";
+import NavBar from "./components/Header/NavBar";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
           <AsyncProvider>
 
             <Header />
-
+            <NavBar/>
             <Main />
             
           </AsyncProvider>
