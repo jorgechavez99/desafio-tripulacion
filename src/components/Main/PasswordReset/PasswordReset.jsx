@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserAuth } from '../../../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -8,6 +8,7 @@ const PasswordReset = () => {
   const { resetPassword, validMails } = UserAuth();
   const [email, setEmail] = useState('');
   const [resetSent, setResetSent] = useState(false);
+  const navigate = useNavigate();
 
   function validarEmail(email) {
     // Expresión regular para validar el formato de un correo electrónico
@@ -31,6 +32,10 @@ const PasswordReset = () => {
     }
   };
 
+  function handleVolverClick() {
+    navigate("/");
+  }
+
 
   return (
     <>
@@ -49,13 +54,13 @@ const PasswordReset = () => {
               {resetSent ? (
                 <>
                   <p>Se ha enviado un correo electrónico a <b>{email}</b> con instrucciones para restablecer tu contraseña.</p>
-                  <button id="volver-button"><Link to="/">VOLVER</Link></button>
+                  <button onClick={handleVolverClick} id="volver-button">VOLVER</button>
                 </>
               ) : (
                 <>
                   <label htmlFor="email">Usuario</label>
                   <input
-                    name="mail" 
+                    name="mail"
                     id="email"
                     type="email"
                     placeholder="info@ejemplo.com"
@@ -63,7 +68,7 @@ const PasswordReset = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button onClick={handleResetPassword}>ENVIAR</button>
-                  <button id="volver-button"><Link to="/">VOLVER</Link></button>
+                  <button onClick={handleVolverClick} id="volver-button">VOLVER</button>
                 </>
               )}
 
