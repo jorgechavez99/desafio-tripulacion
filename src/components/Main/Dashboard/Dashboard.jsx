@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserAuth } from "../../../context/AuthContext";
-import NavBar from "../../Header/NavBar";
-
-// import { transformJson } from "../../../helpers/transformJson";
+import BarChart from "../BarChart/BarChart";
 
 const Dashboard = () => {
-  const { user } = UserAuth();
-
-  // transformJson()
+  const { user, rol } = UserAuth();
+  
 
   return (
     <>
@@ -16,6 +13,7 @@ const Dashboard = () => {
           <section className="main-dashboard-container">
             <h2>Bienvenido {user.email}</h2>
           </section>
+    <BarChart/>
         </>
       }
       {!user &&
