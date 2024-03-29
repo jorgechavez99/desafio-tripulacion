@@ -14,33 +14,16 @@ const Main = () => {
 
   return (
     <main className="container">
-
-
       <Routes>
-        {!user ? (
-          <>
-            <Route path="/" element={<Login />} />
-            <Route path="/password-reset" element={<PaswordReset />} />
-            <Route path="/*" element={<Navigate to={"/"} />} />
-            
-          </>
-        ) : rol === false && user ? (
-          <>
-            <Route path="/users" element={<Users />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/*" element={<Navigate to={"/dashboard"} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/ventas/general" element={<General/>} />
-            <Route path="/ventas/analiticas" element={<Analiticas/>} />
-            <Route path="/cliente/segmentacion" element={<Segmentacion/>} />
-            <Route path="/cliente/lista" element={<Lista/>} />
-            <Route path="/*" element={<Navigate to={"/dashboard"} />} />
-          </>
-        )}
+        <Route path="/" element={ user ? <Navigate to={ "/dashboard" } /> : <Login /> } />
+        <Route path="/password-reset" element={ user ? <Navigate to={ "/dashboard" } /> : <PaswordReset /> } />
+        <Route path="/users" element={ user ? <Users /> : <Navigate to={ "/" } /> } />
+        <Route path="/dashboard" element={ user ? <Dashboard /> : <Navigate to={ "/" } /> } />
+        <Route path="/ventas/general" element={ user ? rol === true ? <General /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
+        <Route path="/ventas/analiticas" element={ user ? rol === true ? <Analiticas /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
+        <Route path="/cliente/segmentacion" element={ user ? rol === true ? <Segmentacion /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
+        <Route path="/cliente/lista" element={ user ? rol === true ? <Lista /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
+        <Route path="/*" element={ <Navigate to={ "/dashboard" } /> } />
       </Routes>
     </main>
   );
