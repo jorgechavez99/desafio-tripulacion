@@ -1,10 +1,10 @@
-import React from "react";
-import { shallow } from "enzyme";
-import Login from "./Breadcrum";
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Breadcrumb from './Breadcrumb';  
 
-describe("Login", () => {
-  test("matches snapshot", () => {
-    const wrapper = shallow(<Login />);
-    expect(wrapper).toMatchSnapshot();
+describe('Breadcrumb component', () => {
+  test('renders without crashing', () => {
+    render(<Breadcrumb />);
+    expect(screen.getByText('The Bridge')).toBeInTheDocument();
   });
 });
