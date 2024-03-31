@@ -1,0 +1,28 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+.breadcrumb {
+    display: flex;
+    padding: 0px 4px;
+    align-items: center;
+    gap: 8px;
+    margin-left: 195px;
+    color: #B4E501;
+}
+
+.breadcrumb a{
+    color: #4D4D4D;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #6A2652;
+}
+
+.breadcrumb p {
+    
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
