@@ -89,9 +89,7 @@ const NavBar = () => {
       {rol &&
       <div className="title-ul">
       <img id="user-rounded" src="assets/user-rounded.svg" alt="user-rounded" />
-        <a>
           <NavLink to="/users">Usuarios</NavLink>
-        </a>
         </div>
       }
 

@@ -13,7 +13,7 @@ const Main = () => {
   const { user, rol } = UserAuth();
 
   return (
-    <main className="container">
+    <main  >
       <Routes>
         <Route path="/" element={ user ? <Navigate to={ "/dashboard" } /> : <Login /> } />
         <Route path="/password-reset" element={ user ? <Navigate to={ "/dashboard" } /> : <PaswordReset /> } />
