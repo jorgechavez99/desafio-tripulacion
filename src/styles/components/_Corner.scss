@@ -1,0 +1,6 @@
+@import "../utils/variables.scss";
+@import "../utils/mixinCorner.scss";
+
+.main-corner-container {
+    @include chooseCorner;
+}
