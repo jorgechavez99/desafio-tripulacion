@@ -19,7 +19,7 @@ const Dashboard = () => {
             <p>Eres rol admin   {rol}</p>
           }
         </section>
-      <BarChart/>
+      {/* <BarChart/> */}
       </>
       }
       {!user &&

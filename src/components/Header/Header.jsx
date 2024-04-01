@@ -8,11 +8,10 @@ const Header = () => {
   return (
     <>
       
-      
       {user && 
       <>
-      <div>Header</div>
-      <NavBar />
+      {/* <div>Header</div> */}
+      {/* <NavBar /> */}
       </>
       }
     </>

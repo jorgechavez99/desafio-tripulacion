@@ -1,0 +1,101 @@
+@import "../utils/variables.scss";
+@import "../utils/mixinCorner.scss";
+
+.main-corner-container {
+    @include chooseCorner;
+}
+
+// .first-container {
+//   position: relative;
+//   width: 100vw;
+//   min-height: 100vh;
+//   z-index: 0;
+//   overflow: hidden;
+// }
+
+// .title-container {
+//     margin-top: 3vw;
+//     text-align: left;
+//     margin-left: 7.7vw;
+//   }
+
+// .title {
+//   color: $color-primario;
+//   font-size: 3rem;
+//   margin: 0;
+// }
+// .subtitle {
+//   color: $color-boton;
+//   font-size: 2rem;
+//   margin: 0;
+// }
+// .font {
+//   font-family: "TT Trailers Trial";
+// }
+
+
+
+// .input-container {
+//   display: flex;
+//   justify-content: center;
+//   padding-left: 50%;
+// }
+
+// .input-container input {
+//   width: 100%;
+//   margin-top: 2vw;
+// //   margin-bottom: 4vw;
+//   margin-right: 7.7vw;
+//   padding: 8px 16px;
+//   border-radius: 8px;
+//   border: 0px solid black;
+//   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.25);
+//   background-image: url("/assets/magnify.svg");
+//   background-size: 24px;
+//   background-repeat: no-repeat;
+//   background-position: right;
+// }
+
+
+// .img {
+//   width: 100%;
+//   height: auto;
+//   display: block;
+//   pointer-events: none;
+// }
+
+// .container {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// .banner-container {
+//   width: 85vw;
+//   margin-top: 6vw;
+// }
+
+// .cornerName {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   margin: 0;
+//   padding: 10px;
+//   color: white;
+//   transition: background-color 0.5s ease;
+//   box-sizing: border-box;
+// }
+// .schiller {
+//   margin-top: 6vw;
+// }
+
+// .logo {
+//   width: 450px;
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+//   height: auto;
+//   margin-right: -10vw;
+//   margin-bottom: -10vw;
+//   z-index: -1;
+//   opacity: 0.5;
+// }

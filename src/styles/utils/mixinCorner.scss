@@ -1,0 +1,103 @@
+@mixin for-phone-only {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@mixin for-phone-tablet-only {
+  @media (max-width: 999px) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media (min-width: 999px) {
+    @content;
+  }
+}
+
+@mixin chooseCorner {
+//   @include for-desktop {   
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+
+      .title-container {
+        margin-top: 3vw;
+        text-align: left;
+        margin-left: 7.7vw;
+
+        .title {
+          color: $color-primario;
+          font-size: 3rem;
+          margin: 0;
+        }
+        .subtitle {
+          color: $color-boton;
+          font-size: 2rem;
+          margin: 0;
+        }
+        .font {
+          font-family: "TT Trailers Trial";
+        }
+      }
+      .input-container {
+        display: flex;
+        justify-content: center;
+        padding-left: 50%;
+
+        input {
+            width: 100%;
+            margin-top: 2vw;
+            margin-bottom: 4vw;
+            margin-right: 7.7vw;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 0px solid black;
+            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.25);
+            background-image: url("/assets/magnify.svg");
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: right;
+          }      
+      }
+
+      .container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 6vw;
+        .banner-container {
+            width: 85vw;
+            .img {
+                width: 100%;
+                height: auto;
+                display: block;
+                pointer-events: none;
+              }
+          }
+        .cornerName {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            padding: 10px;
+            color: white;
+            transition: background-color 0.5s ease;
+            box-sizing: border-box;
+          }
+      }
+      
+      .logo {
+        width: 100px;
+        position: absolute;
+        // right: 100;
+        // bottom: 100;
+        height: auto;
+        margin-right: -10;
+        margin-bottom: -10;
+        z-index: -1;
+        opacity: 0.5;
+      }
+    
+//   }
+}

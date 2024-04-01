@@ -2,20 +2,21 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import Main from "./components/Main";
 import Header from "./components/Header/Header";
-import { AsyncProvider } from "./context/asincContext/AsyncProvider";
+import { CornerProvider } from "./context/cornerContext/CornerProvider";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthContextProvider>
-          <AsyncProvider>
+          <CornerProvider>
 
             <Header />
 
             <Main />
             
-          </AsyncProvider>
+          </CornerProvider>
         </AuthContextProvider>
       </BrowserRouter>
     </>

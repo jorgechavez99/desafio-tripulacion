@@ -13,11 +13,11 @@ import {
 import { Bar } from "react-chartjs-2";
 
 import Loading from "../Loading/Loading";
-import { AsyncContext } from "../../../context/asincContext/AsyncContext";
+// import { AsyncContext } from "../../../context/asincContext/AsyncContext";
 import { useTransformJson } from "../../../hooks/useTransformJson";
 
 const BarChart = () => {
-  const {objetoData, days, predictions, } = useContext(AsyncContext)
+  // const {objetoData, days, predictions, } = useContext(AsyncContext)
   
  
   useTransformJson()

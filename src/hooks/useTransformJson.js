@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { transformJson } from '../helpers/transformJson'
-import { AsyncContext } from '../context/asincContext/AsyncContext'
+// import { AsyncContext } from '../context/asincContext/AsyncContext'
 
 export const useTransformJson = () => {
   
-    const {objetoData, setObjetoData, days, setDays, predictions, setPredictions} = useContext(AsyncContext)
+    // const {objetoData, setObjetoData, days, setDays, predictions, setPredictions} = useContext(AsyncContext)
 
     useEffect(()=>{
     //    const { daysArray, predictionsArray, objetoDataJson}=transformJson()
