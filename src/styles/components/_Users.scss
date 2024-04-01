@@ -1,0 +1,85 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+.main-container {
+    @include main;
+}
+
+.crudContainer {
+    width: 1053px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.actionCrud {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #FAFAFA;
+    width: 30%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    margin-bottom: 30px;
+
+    & > label {
+        font-weight: bold;
+        align-self: flex-start;
+        margin-bottom: 1.2vh;
+        font-size: 1.2rem;
+    }
+
+    & > input, & > select {
+        padding: 4%;
+        border: 2px solid $color-neutro1;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 3.5vh;
+        &:hover {
+            border: 2px solid $color-primario;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.actionCrud button, button[type="submit"] {
+    background-color: $color-boton;
+    width: 75%;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-boton-hover;
+    }
+    &:active {
+        background-color: $color-boton-active;
+    }
+}
+
+.tableUsers table {
+    width: 1053px; 
+    table-layout: fixed; 
+    margin-bottom: 15px;
+}
+
+.tableUsers th:nth-child(1), .tableUsers td:nth-child(1) {
+    width: 70%; 
+}
+
+.tableUsers th:nth-child(2), .tableUsers td:nth-child(2) {
+    width: 30%; 
+}
+
+.tableUsers th, .tableUsers td {
+    padding: 25px; 
+    text-align: left; 
+}
