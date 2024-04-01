@@ -5,17 +5,18 @@ import Header from "./components/Header/Header";
 import NavBar from "./components/Header/NavBar";
 
 
+
 function App() {
 
   return (
     <>
       <BrowserRouter>
         <AuthContextProvider>
+          
+          <Header />
+          <NavBar />
+          <Main />
 
-            <Header />
-            <NavBar/>
-            <Main />
-            
         </AuthContextProvider>
       </BrowserRouter>
     </>
