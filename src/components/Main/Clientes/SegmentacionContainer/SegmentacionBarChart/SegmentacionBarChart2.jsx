@@ -11,7 +11,7 @@ const SegmentacionBarChart = ({ data }) => {
       }
     },
     legend: {
-      data: ['De 9:00 a 12:00', 'De 12:00 a 15:00', 'De 15:00 a 18:00', 'De 18:00 a 21:00']
+      data: ['Grupo 1', 'Grupo 2', 'Grupo 3', 'Grupo 4']
     },
     grid: {
       left: '3%',
@@ -28,7 +28,7 @@ const SegmentacionBarChart = ({ data }) => {
     },
     yAxis: {
       type: 'category',
-      data: ["Grupo 5", 'Grupo 4', 'Grupo 3', 'Grupo 2', 'Grupo 1']
+      data: ['De 18:00 a 21:00', 'De 15:00 a 18:00', 'De 12:00 a 15:00', "De 9:00 a 12:00"]
     },
     series: data
   };
@@ -37,4 +37,3 @@ const SegmentacionBarChart = ({ data }) => {
 };
 
 export default SegmentacionBarChart;
-
