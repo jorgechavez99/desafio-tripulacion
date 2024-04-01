@@ -3,16 +3,19 @@
         @content;
     }
 }
+
 @mixin for-phone-tablet-only {
     @media (max-width: 999px) {
         @content;
     }
 }
+
 @mixin for-desktop {
     @media (min-width: 999px) {
         @content;
     }
 }
+
 @mixin auth {
     @include for-desktop {
         display: flex;
@@ -662,7 +665,6 @@
 
 @mixin dashboard {
 
-
     @include for-desktop {
 
         //===999 max====//
@@ -675,5 +677,62 @@
 
     @include for-phone-only() {
         //====600 min==//
+    }
+}
+
+@mixin main {
+
+    @include for-desktop {
+        //===999 max====//
+        margin-left: 189px;
+        width: 90%;
+    }
+
+    @include for-phone-tablet-only {
+        //=======999 min=======//
+    }
+
+    @include for-phone-only() {
+        //====600 min==//
+    }
+}
+
+@mixin ventasGeneral {
+
+    @include for-desktop {
+
+        //===999 max====//
+        &>.resumen {
+            display: flex;
+            padding: 16px 80px;
+            margin: 0px 100px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+            &>.item-resumen {
+                display: flex;
+                flex-direction: column;
+            }
+            &>.item-resumen > div {
+                color: #23AA3E;
+                display: flex;
+                gap: 10px;
+            }
+
+        }
+
+    }
+    @include for-phone-tablet-only {
+        //=======999 min=======//
+background-color: #23AA3E;
+    }
+
+    @include for-phone-only() {
+        //====600 min==//
+        background-color: yellow;
+
     }
 }
