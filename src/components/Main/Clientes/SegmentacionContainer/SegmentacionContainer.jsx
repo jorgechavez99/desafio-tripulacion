@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumb from "../../Breadcrum/Breadcrum"
 import SegmentacionBarChart from './SegmentacionBarChart'
+import SegmentacionBarChart2 from './SegmentacionBarChart/SegmentacionBarChart2'
 import SegmentacionTable from './SegmentacionTable'
 import axios from 'axios';
 
-// Mock data for the chart
+// Mock data for the chart 1
 const data = [
   {
     name: 'De 9:00 a 12:00',
@@ -17,7 +18,7 @@ const data = [
     emphasis: {
       focus: 'series'
     },
-    data: ["Sin ventas", 3, 8, 4]
+    data: [2, 10, 8, 4, 1]
   },
   {
     name: 'De 12:00 a 15:00',
@@ -30,7 +31,7 @@ const data = [
     emphasis: {
       focus: 'series'
     },
-    data: [8, "Sin ventas", 6, 2]
+    data: [8, 1, 10, 2, 1]
   },
   {
     name: 'De 15:00 a 18:00',
@@ -43,7 +44,7 @@ const data = [
     emphasis: {
       focus: 'series'
     },
-    data: [4, 6, 9, 7]
+    data: [4, 6, 1, 10, 1]
   },
   {
     name: 'De 18:00 a 21:00',
@@ -56,9 +57,65 @@ const data = [
     emphasis: {
       focus: 'series'
     },
-    data: [6, 8, 3, 5]
+    data: [6, 8, 3, 5, 10]
   }
 ];
+
+// Mock data for the chart 2
+// const data = [
+//   {
+//     name: 'Grupo 1',
+//     type: 'bar',
+//     stack: 'stack',
+//     label: {
+//       show: true,
+//       formatter: '{c}'
+//     },
+//     emphasis: {
+//       focus: 'series'
+//     },
+//     data: ["Sin ventas", 3, 8, 4]
+//   },
+//   {
+//     name: 'Grupo 2',
+//     type: 'bar',
+//     stack: 'stack',
+//     label: {
+//       show: true,
+//       formatter: '{c}'
+//     },
+//     emphasis: {
+//       focus: 'series'
+//     },
+//     data: [8, "Sin ventas", 6, 2]
+//   },
+//   {
+//     name: 'Grupo 3',
+//     type: 'bar',
+//     stack: 'stack',
+//     label: {
+//       show: true,
+//       formatter: '{c}'
+//     },
+//     emphasis: {
+//       focus: 'series'
+//     },
+//     data: [4, 6, 9, 7]
+//   },
+//   {
+//     name: 'Grupo 4',
+//     type: 'bar',
+//     stack: 'stack',
+//     label: {
+//       show: true,
+//       formatter: '{c}'
+//     },
+//     emphasis: {
+//       focus: 'series'
+//     },
+//     data: [6, 8, 3, 5]
+//   }
+// ];
 
 const SegmentacionContainer = () => {
 
@@ -140,6 +197,7 @@ const SegmentacionContainer = () => {
               <h4>Horario de compra</h4>
               <p>Gasto por tramo horario y grupo</p>
               <SegmentacionBarChart data={data} />
+              {/* <SegmentacionBarChart2 data={data} /> */}
             </article>
             <article>
               <SegmentacionTable descripcion={descripcion} top={top} />
