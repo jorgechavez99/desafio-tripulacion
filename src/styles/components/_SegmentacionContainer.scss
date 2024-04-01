@@ -1,0 +1,74 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+
+.mainContainer {
+    margin-left: 189px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:  #FAFAFA;
+}
+
+.segmentationTable {
+    width: 1053px;
+    text-align: left;
+}
+
+thead tr{
+    height: 48px;
+    overflow: hidden;
+    background: #E6DBF0;
+    border-radius: 0px;
+    padding: 0px 30px;
+    margin-bottom: 10px;
+}
+
+th,td {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+}
+
+tr {
+    display: flex;
+    height: 74px;
+    padding: 8px 20px;
+    font-size: 14px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+
+
+.chartContainer {
+    text-align: center;
+    width: 1053px;
+    height: 383px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+
+}
+
+.chartContainer p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 24px */
+    color: #7D7D7D;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.chartContainer h4 {
+    margin-bottom: 3px;
+}
