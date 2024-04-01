@@ -37,3 +37,4 @@ const SegmentacionBarChart = ({ data }) => {
 };
 
 export default SegmentacionBarChart;
+
