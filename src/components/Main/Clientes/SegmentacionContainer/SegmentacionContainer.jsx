@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumb from "../../Breadcrum/Breadcrum"
 import SegmentacionBarChart from './SegmentacionBarChart'
-import SegmentacionBarChart2 from './SegmentacionBarChart/SegmentacionBarChart2'
 import SegmentacionTable from './SegmentacionTable'
+import Loading from '../../Loading/Loading'
 import axios from 'axios';
-import loadingGif from '/assets/gif-loading.gif';
+
 
 
 const SegmentacionContainer = () => {
@@ -139,13 +139,12 @@ const SegmentacionContainer = () => {
       <Breadcrumb />
       <section className='mainContainer'>
         <h1>Segmentación de clientes</h1>
-
         {descripcion !== "" && volumen !== "" && top !== "" ? (
           <>
             <article className='chartContainer'>
               <h4>Frecuencia por franja horaria</h4>
               <p>Ventas por tramo horario y grupo</p>
-              <SegmentacionBarChart2 volumen={volumen} />
+              <SegmentacionBarChart volumen={volumen} />
             </article>
             <article>
               <SegmentacionTable descripcion={descripcion} top={top} />
@@ -153,10 +152,7 @@ const SegmentacionContainer = () => {
           </>
 
         ) : (
-          <article className='spinner'>
-            <img src={loadingGif} alt="Cargando datos" />
-            <h3>Cargando datos...</h3>
-          </article>
+          <Loading/>
 
         )}
       </section >
