@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import useBox from '../../../hooks/useBox'
 import BarChart from '../BarChart/BarChart'
-import liston from '../../../../public/assets/liston.jpg'
-import cafe_umbrellla from '../../../../public/assets/cafe_umbrella.png'
-import mios_maiz from '../../../../public/assets/mios_maiz.png'
-import flecha_arriba from '../../../../public/assets/flecha_arriba.png'
-import flecha_abajo from '../../../../public/assets/flecha_abajo.png'
-import pincho_tortilla from '../../../../public/assets/pincho_tortilla.png'
+import liston from '/assets/liston.jpg'
+import cafe_umbrellla from '/assets/cafe_umbrella.png'
+import mios_maiz from '/assets/mios_maiz.png'
+import flecha_arriba from '/assets/flecha_arriba.png'
+import flecha_abajo from '/assets/flecha_abajo.png'
+import pincho_tortilla from '/assets/pincho_tortilla.png'
 
 import axios from 'axios';
 import VentasChart from './VentasChart'
@@ -93,97 +93,101 @@ const General = () => {
 
 
   return (
-    <section className='main-ventasGeneral-container main-container'>
-      {facturacion !== "" && productos !== "" ? (
-        <>
-   <Breadcrum/>
+    <>
+    <div className='main-container'>
 
+ 
+    <section className='main-ventasGeneral-container '>
+      {facturacion !== "" && productos !== "" ? (
+        <>    
+        
+          <Breadcrum />
           <h1>
             Overview
           </h1>
-<div>
-      </div>
-      <p>Resumen beneficios</p>
-      <article className='resumen'>
-        <div className='item-resumen'>
-          <p>Total diario</p>
           <div>
-            <p>{facturacion.total_diario[0]}€</p>
-            <p>{facturacion.total_diario[1]}%</p>
           </div>
+          <p>Resumen beneficios</p>
+          <article className='resumen '>
+            <div className='item-resumen'>
+              <p className='title'>Total diario</p>
+              <div>
+                <p className='valores'>{facturacion.total_diario[0]}€</p>
+                <p className='porcentaje'>{facturacion.total_diario[1]}%</p>
+              </div>
 
-        </div>
-        <div className='item-resumen'>
-          <p>Total semanal</p>
-          <div>
-            <p>{facturacion.total_semanal[0]}€</p>
-            <p>{facturacion.total_semanal[1]}%</p>
-          </div>
-        </div>
-        <div className='item-resumen'>
-          <p>Total mensual</p>
-          <div>
-            <p>{facturacion.total_mensual[0]}€</p>
-            <p>{facturacion.total_mensual[1]}%</p>
-          </div>
-        </div>
-      </article>
-
-      <p>Productos destacados</p>
-      <article className='items-productos'>
-        <div className='item'>
-          <p>{productos.producto_estrella.producto}</p>
-          <div className='imagenes'>
-            <div className='product'>
-              <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
             </div>
-            <p>{productos.producto_estrella.unidades}u</p>
-            <div className='gadgets'>
-              <img id="liston" src={liston} alt="liston" />
+            <div className='item-resumen'>
+              <p className='title'>Total semanal</p>
+              <div>
+                <p className='valores'>{facturacion.total_semanal[0]}€</p>
+                <p className='porcentaje'>{facturacion.total_semanal[1]}%</p>
+              </div>
             </div>
-          </div>
-          <p>+{productos.producto_estrella.porcentaje} Unidades vendidas con respecto a los ultimos 7 dias.</p>
-        </div>
-        <div className='item'>
-
-          <p>{productos.producto_mas_vendido.producto}</p>
-          <div className='imagenes'>
-            <div className='product'>
-              <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" />
+            <div className='item-resumen'>
+              <p className='title'>Total mensual</p>
+              <div>
+                <p className='valores'>{facturacion.total_mensual[0]}€</p>
+                <p className='porcentaje'>{facturacion.total_mensual[1]}%</p>
+              </div>
             </div>
-            <p>{productos.producto_mas_vendido.porcentaje}%</p>
-            <div className='gadgets'>
-              <img id="flecha_arriba" src={flecha_arriba} alt="flecha_arriba" />
+          </article>
+
+          <p>Productos destacados</p>
+          <article className='items-productos'>
+            <div className='item'>
+              <p>{productos.producto_estrella.producto}</p>
+              <div className='imagenes'>
+                <div className='product'>
+                  <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
+                </div>
+                <p>{productos.producto_estrella.unidades}u</p>
+                <div className='gadgets'>
+                  <img id="liston" src={liston} alt="liston" />
+                </div>
+              </div>
+              <p>+{productos.producto_estrella.porcentaje} Unidades vendidas con respecto a los ultimos 7 dias.</p>
             </div>
-          </div>
+            <div className='item'>
 
-          <p>+{productos.producto_mas_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p>{productos.producto_mas_vendido.producto}</p>
+              <div className='imagenes'>
+                <div className='product'>
+                  <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" />
+                </div>
+                <p>{productos.producto_mas_vendido.porcentaje}%</p>
+                <div className='gadgets'>
+                  <img id="flecha_arriba" src={flecha_arriba} alt="flecha_arriba" />
+                </div>
+              </div>
 
-        </div>
-        <div className='item'>
+              <p>+{productos.producto_mas_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
-          <p>{productos.producto_menos_vendido.producto}</p>
-          <div className='imagenes'>
-          <div className='product'>
-          <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
-          </div>
-          <p>{productos.producto_menos_vendido.porcentaje}%</p>
-          <div className='gadgets'>
-            <img id="flecha_abajo" src={flecha_abajo} alt="flecha_abajo" />
-          </div>
-          </div>
-        
-          <p>-{productos.producto_menos_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+            </div>
+            <div className='item'>
 
-        </div>
+              <p>{productos.producto_menos_vendido.producto}</p>
+              <div className='imagenes'>
+                <div className='product'>
+                  <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
+                </div>
+                <p>{productos.producto_menos_vendido.porcentaje}%</p>
+                <div className='gadgets'>
+                  <img id="flecha_abajo" src={flecha_abajo} alt="flecha_abajo" />
+                </div>
+              </div>
 
-      </article>
-      <article className='graph-ventas-general'>
-        <p>Analiticas de ventas</p>
-        <VentasChart/>
-        {/* <BarChart /> */}
-      </article>
+              <p>-{productos.producto_menos_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
+            </div>
+
+          </article>
+          <article className='graph-ventas-general'>
+            <p>Analiticas de ventas</p>
+            <VentasChart />
+            {/* <BarChart /> */}
+          </article>
+          
         </>
 
       ) : (
@@ -192,8 +196,11 @@ const General = () => {
       )}
 
 
-      
+
     </section>
+    </div>
+    </>
+    
   )
 }
 
