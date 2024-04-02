@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import '/src/styles/components/_Corner.scss';
 import { CornerSelected } from "../../../context/CornerContext";
