@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {CornerSelected} from '../../../../context/CornerContext'
 import Breadcrumb from "../../Breadcrum/Breadcrum"
 import SegmentacionBarChart from './SegmentacionBarChart'
 import SegmentacionTable from './SegmentacionTable'
@@ -12,11 +13,12 @@ const SegmentacionContainer = () => {
   const [volumen, setVolumen] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [top, setTop] = useState("");
-  const corner = "thebridge";
+  const {corner} = CornerSelected();
   const endpointVolumen = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/volumen";
   const endpointDescripcion = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/descripcion";
   const endpointTop = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/top";
 
+  console.log("Corner elegido desde Segmentacion: ", corner)
 
   // Function to group and sum volume data by period
   const groupAndSumByPeriod = (data) => {
