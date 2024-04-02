@@ -13,7 +13,7 @@ const Analiticas = () => {
       <article className='analiticas-container'>
         <h1>Analítica de ventas</h1>
 
-        <div className='machines-type'>
+        <div className='categories'>
           <Link to={ "/ventas/analiticas/cafe" }>Máquina de café</Link>
           <span>|</span>
           <Link to={ "/ventas/analiticas/snacks" }>Máquina de snacks</Link>
@@ -21,7 +21,7 @@ const Analiticas = () => {
           <Link to={ "/ventas/analiticas/vitrina" }>Vitrina inteligente</Link>
         </div>
 
-        <div className='ventas-graphic'>
+        <div className='graphic'>
           <VentasChart />
         </div>
       </article>
