@@ -11,34 +11,70 @@ import pincho_tortilla from '/assets/pincho_tortilla.png'
 import axios from 'axios';
 import VentasChart from './VentasChart'
 import Breadcrum from "../../Main/Breadcrum/Breadcrum"
+import { CornerSelected } from '../../../context/CornerContext'
 
 const General = () => {
 
-  // const [facturacion, setFacturacion] = useState("");
+  const [facturacion, setFacturacion] = useState("");
   const [productos, setProductos] = useState("");
+  const [resumen, setResumen] = useState("");
 
-  const corner = "the-bridge";
+  
+  const {corner:cornerT, setCorner} = CornerSelected();
+
+let cornerS="";
+
+ if(cornerT == "thebridge"){
+    cornerS="the-bridge"
+   }
+   else{ cornerS="schiller"}
+
+
+// console.log("ORIGINAL",cornerT)
+// console.log("CAMBIADO",cornerS)
+
+  const corner = cornerS;
   const endpointFacturacion = import.meta.env.VITE_VENTAS_ENDPOINT_REQUEST + "facturacion?ubicacion=" + corner;
   const endpointProductos = import.meta.env.VITE_VENTAS_ENDPOINT_REQUEST + "productosdestacados?ubicacion=" + corner;
-  console.log("verurl", endpointFacturacion)
-  // useEffect(() => {
-  //   const fetchFacturacion = async () => {
-  //     try {
-  //       const result = await axios(endpointFacturacion, {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "x-api-key": import.meta.env.VITE_DATA_API_KEY
-  //         }
-  //       });
-  //       setFacturacion(result.data);
-  //       console.log(facturacion);
-  //     } catch (error) {
-  //       console.error('Error fetching facturacion: ', error);
+  const endpointGraficoVentas = import.meta.env.VITE_VENTAS_GRAFICO_ENDPOINT_REQUEST+corner;
 
-  //     }
-  //   };
-  //   fetchFacturacion();
-  // }, []);
+  useEffect(() => {
+    const fetchResumen = async () => {
+      try {
+        const result = await axios(endpointGraficoVentas, {
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": import.meta.env.VITE_DATA_API_KEY
+          }
+        });
+        setResumen(result.data);
+
+      } catch (error) {
+        console.error('Error fetching resumen: ', error);
+      }
+    };
+    fetchResumen();
+  }, []);
+
+
+  useEffect(() => {
+    const fetchFacturacion = async () => {
+      try {
+        const result = await axios(endpointFacturacion, {
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": import.meta.env.VITE_DATA_API_KEY
+          }
+        });
+        setFacturacion(result.data);
+        // console.log(facturacion);
+      } catch (error) {
+        console.error('Error fetching facturacion: ', error);
+
+      }
+    };
+    fetchFacturacion();
+  }, []);
 
   useEffect(() => {
     const fetchProductos = async () => {
@@ -50,7 +86,7 @@ const General = () => {
           }
         });
         setProductos(result.data);
-        console.log(productos);
+      
 
       } catch (error) {
         console.error('Error fetching productos: ', error);
@@ -61,12 +97,12 @@ const General = () => {
 
 
   //Mock datos para totales 
-  const facturacion = {
-    "corner": "the_bridge",
-    "total_diario": [565, 34],
-    "total_semanal": [1204, 26],
-    "total_mensual": [2506, 22]
-  }
+  // const facturacion = {
+  //   "corner": "the_bridge",
+  //   "total_diario": [565, 34],
+  //   "total_semanal": [1204, 26],
+  //   "total_mensual": [2506, 22]
+  // }
 
   //Mock datos para productos
   // const productos = {
@@ -91,14 +127,13 @@ const General = () => {
   // }
 
 
-
   return (
     <>
     <div className='main-container'>
 
  
     <section className='main-ventasGeneral-container '>
-      {facturacion !== "" && productos !== "" ? (
+      {facturacion !== "" && productos !== "" && resumen !== "" ? (
         <>    
         
           <Breadcrum />
@@ -141,19 +176,21 @@ const General = () => {
                 <div className='product'>
                   <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
                 </div>
-                <p>{productos.producto_estrella.unidades}u</p>
+                <p>{productos.producto_estrella.porcentaje}u</p>
                 <div className='gadgets'>
                   <img id="liston" src={liston} alt="liston" />
                 </div>
               </div>
-              <p>+{productos.producto_estrella.porcentaje} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p>{productos.producto_estrella.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
             </div>
             <div className='item'>
 
               <p>{productos.producto_mas_vendido.producto}</p>
               <div className='imagenes'>
                 <div className='product'>
-                  <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" />
+                  {corner == "the-bridge" ? <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" />:
+                  <img id="cafe_umbrella" src={mios_maiz} alt="cafe_umbrella" />
+                  }
                 </div>
                 <p>{productos.producto_mas_vendido.porcentaje}%</p>
                 <div className='gadgets'>
@@ -161,7 +198,7 @@ const General = () => {
                 </div>
               </div>
 
-              <p>+{productos.producto_mas_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p>{productos.producto_mas_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
             </div>
             <div className='item'>
@@ -177,14 +214,14 @@ const General = () => {
                 </div>
               </div>
 
-              <p>-{productos.producto_menos_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p>{productos.producto_menos_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
             </div>
 
           </article>
           <article className='graph-ventas-general'>
             <p>Analiticas de ventas</p>
-            <VentasChart />
+            <VentasChart resumen={resumen} />
             {/* <BarChart /> */}
           </article>
           
