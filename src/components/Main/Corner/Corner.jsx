@@ -1,17 +1,17 @@
-// import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import '/src/styles/components/_Corner.scss';
-// import { CornerProvider } from "../../../context/cornerContext/CornerProvider";
+import { CornerSelected } from "../../../context/CornerContext";
 
 const Corner = () => {
 
-// const {corner, useCorner} = useContext(CornerProvider)
+const {corner, setCorner} = CornerSelected();
 
 const handlerTheBridge = () => {
-// useCorner('thebridge')
+  setCorner('thebridge')
 }
 const handlerSchiller = () => {
-  // useCorner('schiller')
+  setCorner('schiller')
 }
   return (
     <>
