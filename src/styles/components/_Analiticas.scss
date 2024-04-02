@@ -1,0 +1,59 @@
+@import "../utils/variables.scss";
+
+.analiticas-main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > .breadcrum {
+        margin-left: 1%;
+        align-self: flex-start;
+    }
+
+    & > .analiticas-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & > h1 {
+            font-size: 1.8rem;
+        }
+
+        & > .machines-type {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2%;
+
+            & > span {
+                margin-left: 15px;
+                margin-right: 15px;
+                font-size: 1.5rem;
+            }
+
+            & > a {
+                text-decoration: none;
+                font-weight: bold;
+                color: $color-primario;
+            }
+
+            & > a:hover {
+                border-bottom: 2px solid #B4E501;
+            }
+        }
+
+        & > .ventas-graphic {
+            width: 60%;
+            margin-left: 5%;
+            padding: 1%;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+        }
+    }
+}
