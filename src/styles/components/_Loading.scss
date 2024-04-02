@@ -1,0 +1,17 @@
+@import "../utils/variables.scss";
+@import "../utils/mixinCorner.scss";
+
+.spinner {
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    background: #E6DBF0;
+    img {
+        border-radius: 0px, 10px, 10px, 0px;
+        height:388px;
+        width: 388px;
+    }
+    h3{
+        color: #000000;
+    }
+
+}
