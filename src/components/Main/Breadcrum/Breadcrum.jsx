@@ -9,7 +9,7 @@ const Breadcrumb = () => {
   return (
     <section className='breadcrumb'>
       <p><b><Link to="/">{"< "}</Link></b></p>
-      <p><Link to="/">{" The Bridge "}</Link></p>
+      <p><Link to="/">{" Corners "}</Link></p>
       {paths.map((path, index) => (
         <React.Fragment key={path}>
           /  <p><Link to={`/${paths.slice(0, index + 1).join('/')}`}>{path}</Link></p>

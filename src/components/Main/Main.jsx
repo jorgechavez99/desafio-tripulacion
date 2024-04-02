@@ -21,7 +21,7 @@ const Main = () => {
         <Route path="/password-reset" element={ user ? <Navigate to={ "/dashboard" } /> : <PaswordReset /> } />
         <Route path="/users" element={ user ? <Users /> : <Navigate to={ "/" } /> } />
         
-        <Route path="/dashboard" element={ user ? <Dashboard /> : <Navigate to={ "/" } /> } />
+        <Route path="/dashboard" element={ user ? <General /> : <Navigate to={ "/" } /> } />
         <Route path="/corner" element={ user ? rol === true ? <Corner /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> }/>
         <Route path="/ventas/general" element={ user ? rol === true ? <General /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas" element={ user ? rol === true ? <Analiticas /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />

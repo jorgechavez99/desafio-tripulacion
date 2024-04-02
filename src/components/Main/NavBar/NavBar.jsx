@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { UserAuth } from "../../../context/AuthContext";
+import { CornerSelected } from "../../../context/CornerContext";
+import schiller from '/assets/schiller_fondo.jpg'
+import bridge from '/assets/bridge_logo.svg'
 
 const NavBar = () => {
 
   const { user, rol, setRol, logOut } = UserAuth();
 
-
+  const {corner, setCorner} = CornerSelected();
 
   const cerrarSesion = async () => {
     try {
@@ -29,9 +32,13 @@ const NavBar = () => {
 
       <div className="title-corner">
         <div>
-          <img id="bridge_logo" src="assets/bridge_logo.svg" alt="bridge_logo" />
+        {corner == "thebridge" ? <img id="bridge_logo" src={bridge} alt="bridge_logo" />:
+                  <img id="schiller_logo" src={schiller} alt="schiller_logo" />
+                  } 
         </div>
-        <p>The Bridge</p>
+        {corner == "thebridge" ? <p>The Bridge</p>:<p>Schiller</p>
+                  } 
+        
       </div>
 
 
