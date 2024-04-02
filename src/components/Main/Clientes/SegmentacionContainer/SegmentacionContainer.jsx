@@ -4,118 +4,8 @@ import SegmentacionBarChart from './SegmentacionBarChart'
 import SegmentacionBarChart2 from './SegmentacionBarChart/SegmentacionBarChart2'
 import SegmentacionTable from './SegmentacionTable'
 import axios from 'axios';
+import loadingGif from '/assets/gif-loading.gif';
 
-// Mock data for the chart 1
-const data = [
-  {
-    name: 'De 9:00 a 12:00',
-    type: 'bar',
-    stack: 'stack',
-    label: {
-      show: true,
-      formatter: '{c}'
-    },
-    emphasis: {
-      focus: 'series'
-    },
-    data: [2, 10, 8, 4, 1]
-  },
-  {
-    name: 'De 12:00 a 15:00',
-    type: 'bar',
-    stack: 'stack',
-    label: {
-      show: true,
-      formatter: '{c}'
-    },
-    emphasis: {
-      focus: 'series'
-    },
-    data: [8, 1, 10, 2, 1]
-  },
-  {
-    name: 'De 15:00 a 18:00',
-    type: 'bar',
-    stack: 'stack',
-    label: {
-      show: true,
-      formatter: '{c}'
-    },
-    emphasis: {
-      focus: 'series'
-    },
-    data: [4, 6, 1, 10, 1]
-  },
-  {
-    name: 'De 18:00 a 21:00',
-    type: 'bar',
-    stack: 'stack',
-    label: {
-      show: true,
-      formatter: '{c}'
-    },
-    emphasis: {
-      focus: 'series'
-    },
-    data: [6, 8, 3, 5, 10]
-  }
-];
-
-// Mock data for the chart 2
-// const data = [
-//   {
-//     name: 'Grupo 1',
-//     type: 'bar',
-//     stack: 'stack',
-//     label: {
-//       show: true,
-//       formatter: '{c}'
-//     },
-//     emphasis: {
-//       focus: 'series'
-//     },
-//     data: ["Sin ventas", 3, 8, 4]
-//   },
-//   {
-//     name: 'Grupo 2',
-//     type: 'bar',
-//     stack: 'stack',
-//     label: {
-//       show: true,
-//       formatter: '{c}'
-//     },
-//     emphasis: {
-//       focus: 'series'
-//     },
-//     data: [8, "Sin ventas", 6, 2]
-//   },
-//   {
-//     name: 'Grupo 3',
-//     type: 'bar',
-//     stack: 'stack',
-//     label: {
-//       show: true,
-//       formatter: '{c}'
-//     },
-//     emphasis: {
-//       focus: 'series'
-//     },
-//     data: [4, 6, 9, 7]
-//   },
-//   {
-//     name: 'Grupo 4',
-//     type: 'bar',
-//     stack: 'stack',
-//     label: {
-//       show: true,
-//       formatter: '{c}'
-//     },
-//     emphasis: {
-//       focus: 'series'
-//     },
-//     data: [6, 8, 3, 5]
-//   }
-// ];
 
 const SegmentacionContainer = () => {
 
@@ -127,6 +17,62 @@ const SegmentacionContainer = () => {
   const endpointDescripcion = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/descripcion";
   const endpointTop = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/top";
 
+
+  // Function to group and sum volume data by period
+  const groupAndSumByPeriod = (data) => {
+    const periods = [
+      { start: "06:00", end: "09:00" },
+      { start: "09:00", end: "11:00" },
+      { start: "11:00", end: "13:00" },
+      { start: "13:00", end: "15:00" },
+      { start: "15:00", end: "17:00" },
+      { start: "17:00", end: "19:00" },
+      { start: "19:00", end: "22:00" }
+    ];
+
+    const result = {};
+
+    data.forEach(entry => {
+      const { Cluster, franja_horaria, total_compras_codif } = entry;
+      const time = franja_horaria.split(" ")[0];
+
+      const periodIndex = periods.findIndex(period => {
+        const startTime = period.start.split(":");
+        const endTime = period.end.split(":");
+        const entryTime = time.split(":");
+        const entryHour = parseInt(entryTime[0]);
+        const entryMinute = parseInt(entryTime[1]);
+        const startHour = parseInt(startTime[0]);
+        const startMinute = parseInt(startTime[1]);
+        const endHour = parseInt(endTime[0]);
+        const endMinute = parseInt(endTime[1]);
+
+        return (
+          (entryHour > startHour || (entryHour === startHour && entryMinute >= startMinute)) &&
+          (entryHour < endHour || (entryHour === endHour && entryMinute < endMinute))
+        );
+      });
+
+      if (periodIndex !== -1) {
+        const periodKey = `period${periodIndex + 1}`;
+        result[Cluster] = result[Cluster] || Array(periods.length).fill(0);
+        result[Cluster][periodIndex] += total_compras_codif;
+      }
+    });
+
+    // Convert periods with sum 0 to "Sin ventas"
+    for (const cluster in result) {
+      for (let i = 0; i < result[cluster].length; i++) {
+        if (result[cluster][i] === 0) {
+          result[cluster][i] = "Sin ventas";
+        }
+      }
+    }
+
+    return result;
+  };
+
+  // Fetch volumen data from the API
   useEffect(() => {
     const fetchVolumen = async () => {
       try {
@@ -136,16 +82,17 @@ const SegmentacionContainer = () => {
             "x-api-key": import.meta.env.VITE_DATA_API_KEY
           }
         });
-        setVolumen(result.data);
-        console.log(volumen);
+        const groupedData = groupAndSumByPeriod(result.data);
+        setVolumen(groupedData);
       } catch (error) {
         console.error('Error fetching Volumen: ', error);
-
       }
     };
     fetchVolumen();
   }, []);
 
+
+  // Fetch descripcion data from the API
   useEffect(() => {
     const fetchDescripcion = async () => {
       try {
@@ -164,6 +111,7 @@ const SegmentacionContainer = () => {
     fetchDescripcion();
   }, []);
 
+  // Fetch top data from the API
   useEffect(() => {
     const fetchTop = async () => {
       try {
@@ -185,6 +133,7 @@ const SegmentacionContainer = () => {
 
 
 
+
   return (
     <>
       <Breadcrumb />
@@ -194,10 +143,9 @@ const SegmentacionContainer = () => {
         {descripcion !== "" && volumen !== "" && top !== "" ? (
           <>
             <article className='chartContainer'>
-              <h4>Horario de compra</h4>
-              <p>Gasto por tramo horario y grupo</p>
-              <SegmentacionBarChart data={data} />
-              {/* <SegmentacionBarChart2 data={data} /> */}
+              <h4>Frecuencia por franja horaria</h4>
+              <p>Ventas por tramo horario y grupo</p>
+              <SegmentacionBarChart2 volumen={volumen} />
             </article>
             <article>
               <SegmentacionTable descripcion={descripcion} top={top} />
@@ -205,10 +153,13 @@ const SegmentacionContainer = () => {
           </>
 
         ) : (
-          // Puedes renderizar un componente o mensaje de relleno aquí
-          <p>Cargando...</p>
+          <article className='spinner'>
+            <img src={loadingGif} alt="Cargando datos" />
+            <h3>Cargando datos...</h3>
+          </article>
+
         )}
-    </section >
+      </section >
     </>
   )
 }
