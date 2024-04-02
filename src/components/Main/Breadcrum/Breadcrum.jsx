@@ -11,6 +11,7 @@ const Breadcrumb = () => {
   return (
     <section className='breadcrumb'>
       <p><b><Link to="/">{"< "}</Link></b></p>
+      <p><Link to="/">{" Corners "}</Link></p>
       {corner === "thebridge"? <p><Link to="/dashboard">{"The Bridge"}</Link></p>:<p><Link to="/dashboard">{"Schiller"}</Link></p> }
       {paths.map((path, index) => (
         <React.Fragment key={path}>
