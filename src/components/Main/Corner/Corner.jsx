@@ -30,6 +30,7 @@ const handlerSchiller = () => {
           <div className="container">
             <div className="banner-container">
               <Link to="/dashboard" onClick={handlerTheBridge}>
+              <h3 className="cornerName">The Bridge</h3>
                 <img
                   className="img"
                   src="assets/banner-thebridge.png"
@@ -37,7 +38,7 @@ const handlerSchiller = () => {
                 />
               </Link>
             </div>
-            <h3 className="cornerName">The Bridge</h3>
+          
           </div>
         </section>
 
@@ -45,6 +46,7 @@ const handlerSchiller = () => {
           <div className="container">
             <div className="banner-container">
               <Link to="/dashboard" onClick={handlerSchiller}>
+              <h3 className="cornerName">Schiller</h3>
                 <img
                   className="img"
                   src="assets/banner-schiller.png"
@@ -52,17 +54,17 @@ const handlerSchiller = () => {
                 />
               </Link>
             </div>
-            <h3 className="cornerName">Schiller</h3>
+           
           </div>
         </section>
 
-        <div className="logo">
+        {/* <div className="logo">
           <img
             className="img"
             src="assets/umbrella-morado-icono.webp"
             alt="logo Umbrella"
           />
-        </div>
+        </div> */}
       </main>
     </>
   );

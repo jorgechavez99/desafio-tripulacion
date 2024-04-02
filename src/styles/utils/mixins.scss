@@ -1,697 +1,985 @@
 @mixin for-phone-only {
-  @media (max-width: 600px) {
-    @content;
-  }
+    @media (max-width: 600px) {
+        @content;
+    }
 }
 
 @mixin for-phone-tablet-only {
-  @media (max-width: 999px) {
-    @content;
-  }
+    @media (max-width: 999px) {
+        @content;
+    }
 }
 
 @mixin for-desktop {
-  @media (min-width: 999px) {
-    @content;
-  }
+    @media (min-width: 999px) {
+        @content;
+    }
 }
 
 @mixin auth {
-  @include for-desktop {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-
-    & > .left-container {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $color-primario;
-      min-height: 100vh;
-      background-image: url("/assets/lazo-bakery.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: right;
-
-      & > .logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-
-        & > #main-logo {
-          width: 56%;
-          margin-bottom: 5vh;
-          margin-right: 13%;
-        }
-
-        & > #text-logo {
-          width: 60%;
-          margin-right: 13%;
-        }
-      }
-    }
-
-    & > .right-container {
-      width: 50%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      & > .content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        & > h1 {
-          color: $color-primario;
-          font-family: "TT Trailers Trial";
-          font-size: 6rem;
-          margin: 0;
-        }
-
-        & > div {
-          display: flex;
-          flex-direction: column;
-          padding: 2%;
-          width: 81%;
-          margin-top: 6vh;
-
-          & > label {
-            font-weight: bold;
-            align-self: flex-start;
-            margin-bottom: 1.2vh;
-            font-size: 1.2rem;
-          }
-
-          & > input {
-            padding: 4%;
-            border: 2px solid $color-neutro1;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            margin-bottom: 3.5vh;
-          }
-
-          & > input:hover {
-            border: 2px solid $color-primario;
-          }
-
-          & > input:focus {
-            outline: none;
-          }
-
-          & > a {
-            text-decoration: none;
-            color: $color-neutro1;
-            font-weight: bold;
-            font-size: 1.2rem;
-            align-self: flex-end;
-            margin: 1.5vh 2vh 2.5vh 0vh;
-          }
-
-          & > a:active {
-            color: $color-primario;
-          }
-
-          & > a:hover {
-            text-decoration: underline;
-          }
-
-          & > button {
-            background-color: $color-boton;
-            color: white;
-            font-weight: 600;
-            font-size: 1.3rem;
-            border: none;
-            border-radius: 30px;
-            padding-top: 1.5vh;
-            padding-bottom: 1.5vh;
-            cursor: pointer;
-          }
-
-          & > button:hover {
-            background-color: $color-boton-hover;
-          }
-
-          & > button:active {
-            background-color: $color-boton-active;
-          }
-        }
-      }
-    }
-  }
-
-  @include for-phone-tablet-only {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-
-    & > .left-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $color-primario;
-      background-image: url("/assets/lazo-bakery-horizontal.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: bottom;
-
-      & > .logo-container {
+    @include for-desktop {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        justify-content: center;
-        padding-bottom: 10%;
-        padding-top: 5%;
-        width: 100%;
+        min-height: 100vh;
 
-        & > #main-logo {
-          width: 20%;
+        &>.left-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-primario;
+            min-height: 100vh;
+            background-image: url('/assets/lazo-bakery.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+
+            &>.logo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                &>#main-logo {
+                    width: 56%;
+                    margin-bottom: 5vh;
+                    margin-right: 13%;
+                }
+
+                &>#text-logo {
+                    width: 60%;
+                    margin-right: 13%;
+                }
+            }
         }
 
-        & > #text-logo {
-          width: 40%;
-          margin-bottom: 5vw;
+        &>.right-container {
+            width: 50%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &>.content-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &>h1 {
+                    color: $color-primario;
+                    font-family: 'TT Trailers Trial';
+                    font-size: 6rem;
+                    margin: 0;
+                }
+
+                &>div {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2%;
+                    width: 81%;
+                    margin-top: 6vh;
+
+                    &>label {
+                        font-weight: bold;
+                        align-self: flex-start;
+                        margin-bottom: 1.2vh;
+                        font-size: 1.2rem;
+                    }
+
+                    &>input {
+                        padding: 4%;
+                        border: 2px solid $color-neutro1;
+                        border-radius: 5px;
+                        font-size: 1.2rem;
+                        margin-bottom: 3.5vh;
+                    }
+
+                    &>input:hover {
+                        border: 2px solid $color-primario;
+                    }
+
+                    &>input:focus {
+                        outline: none;
+                    }
+
+                    &>a {
+                        text-decoration: none;
+                        color: $color-neutro1;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        align-self: flex-end;
+                        margin: 1.5vh 2vh 2.5vh 0vh;
+                    }
+
+                    &>a:active {
+                        color: $color-primario;
+                    }
+
+                    &>a:hover {
+                        text-decoration: underline;
+                    }
+
+                    &>button {
+                        background-color: $color-boton;
+                        color: white;
+                        font-weight: 600;
+                        font-size: 1.3rem;
+                        border: none;
+                        border-radius: 30px;
+                        padding-top: 1.5vh;
+                        padding-bottom: 1.5vh;
+                        cursor: pointer;
+                    }
+
+                    &>button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    &>button:active {
+                        background-color: $color-boton-active;
+                    }
+                }
+            }
         }
-      }
     }
 
-    & > .right-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      & > .content-container {
+    @include for-phone-tablet-only {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
+        min-height: 100vh;
 
-        & > h1 {
-          color: $color-primario;
-          font-family: "TT Trailers Trial";
-          font-size: 6rem;
-          margin: 0;
+        &>.left-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-primario;
+            background-image: url('/assets/lazo-bakery-horizontal.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+
+            &>.logo-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 10%;
+                padding-top: 5%;
+                width: 100%;
+
+                &>#main-logo {
+                    width: 20%;
+                }
+
+                &>#text-logo {
+                    width: 40%;
+                    margin-bottom: 5vw;
+                }
+            }
         }
 
-        & > div {
-          display: flex;
-          flex-direction: column;
-          padding: 2%;
-          width: 81%;
-          margin-top: 2vh;
+        &>.right-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-          & > label {
-            font-weight: bold;
-            align-self: flex-start;
-            margin-bottom: 1.2vh;
-            font-size: 1.2rem;
-          }
+            &>.content-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-          & > input {
-            padding: 4%;
-            border: 2px solid $color-neutro1;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            margin-bottom: 3.5vh;
-          }
+                &>h1 {
+                    color: $color-primario;
+                    font-family: 'TT Trailers Trial';
+                    font-size: 6rem;
+                    margin: 0;
+                }
 
-          & > input:hover {
-            border: 2px solid $color-primario;
-          }
+                &>div {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2%;
+                    width: 81%;
+                    margin-top: 2vh;
 
-          & > input:focus {
-            outline: none;
-          }
+                    &>label {
+                        font-weight: bold;
+                        align-self: flex-start;
+                        margin-bottom: 1.2vh;
+                        font-size: 1.2rem;
+                    }
 
-          & > a {
-            text-decoration: none;
-            color: $color-neutro1;
-            font-weight: bold;
-            font-size: 1.2rem;
-            align-self: flex-end;
-            margin: 1.5vh 2vh 2.5vh 0vh;
-          }
+                    &>input {
+                        padding: 4%;
+                        border: 2px solid $color-neutro1;
+                        border-radius: 5px;
+                        font-size: 1.2rem;
+                        margin-bottom: 3.5vh;
+                    }
 
-          & > a:active {
-            color: $color-primario;
-          }
+                    &>input:hover {
+                        border: 2px solid $color-primario;
+                    }
 
-          & > a:hover {
-            text-decoration: underline;
-          }
+                    &>input:focus {
+                        outline: none;
+                    }
 
-          & > button {
-            background-color: $color-boton;
-            color: white;
-            font-weight: 600;
-            font-size: 1.3rem;
-            border: none;
-            border-radius: 30px;
-            padding-top: 1.5vh;
-            padding-bottom: 1.5vh;
-            cursor: pointer;
-          }
+                    &>a {
+                        text-decoration: none;
+                        color: $color-neutro1;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        align-self: flex-end;
+                        margin: 1.5vh 2vh 2.5vh 0vh;
+                    }
 
-          & > button:hover {
-            background-color: $color-boton-hover;
-          }
+                    &>a:active {
+                        color: $color-primario;
+                    }
 
-          & > button:active {
-            background-color: $color-boton-active;
-          }
+                    &>a:hover {
+                        text-decoration: underline;
+                    }
+
+                    &>button {
+                        background-color: $color-boton;
+                        color: white;
+                        font-weight: 600;
+                        font-size: 1.3rem;
+                        border: none;
+                        border-radius: 30px;
+                        padding-top: 1.5vh;
+                        padding-bottom: 1.5vh;
+                        cursor: pointer;
+                    }
+
+                    &>button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    &>button:active {
+                        background-color: $color-boton-active;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  @include for-phone-only() {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-
-    & > .left-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $color-primario;
-      background-image: url("/assets/lazo-bakery-horizontal.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: bottom;
-
-      & > .logo-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 10%;
-        padding-top: 5%;
-        width: 100%;
-
-        & > #main-logo {
-          width: 20%;
-        }
-
-        & > #text-logo {
-          width: 40%;
-          margin-bottom: 5vw;
-        }
-      }
-    }
-
-    & > .right-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      & > .content-container {
+    @include for-phone-only() {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
+        min-height: 100vh;
 
-        & > h1 {
-          color: $color-primario;
-          font-family: "TT Trailers Trial";
-          font-size: 15vw;
-          margin: 0;
+        &>.left-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-primario;
+            background-image: url('/assets/lazo-bakery-horizontal.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+
+            &>.logo-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 10%;
+                padding-top: 5%;
+                width: 100%;
+
+                &>#main-logo {
+                    width: 20%;
+                }
+
+                &>#text-logo {
+                    width: 40%;
+                    margin-bottom: 5vw;
+                }
+            }
         }
 
-        & > div {
-          display: flex;
-          flex-direction: column;
-          padding: 2%;
-          width: 81%;
-          margin-top: 4vw;
+        &>.right-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-          & > label {
-            font-weight: bold;
-            align-self: flex-start;
-            margin-bottom: 2.1vw;
-            font-size: 4vw;
-          }
+            &>.content-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-          & > input {
-            padding: 4%;
-            border: 2px solid $color-neutro1;
-            border-radius: 5px;
-            font-size: 4vw;
-            margin-bottom: 7.5vw;
-          }
+                &>h1 {
+                    color: $color-primario;
+                    font-family: 'TT Trailers Trial';
+                    font-size: 15vw;
+                    margin: 0;
+                }
 
-          & > input:hover {
-            border: 2px solid $color-primario;
-          }
+                &>div {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2%;
+                    width: 81%;
+                    margin-top: 4vw;
 
-          & > input:focus {
-            outline: none;
-          }
+                    &>label {
+                        font-weight: bold;
+                        align-self: flex-start;
+                        margin-bottom: 2.1vw;
+                        font-size: 4vw;
+                    }
 
-          & > a {
-            text-decoration: none;
-            color: $color-neutro1;
-            font-weight: bold;
-            font-size: 4vw;
-            align-self: flex-end;
-            margin: 3vw 4vw 5vw 0vh;
-          }
+                    &>input {
+                        padding: 4%;
+                        border: 2px solid $color-neutro1;
+                        border-radius: 5px;
+                        font-size: 4vw;
+                        margin-bottom: 7.5vw;
+                    }
 
-          & > a:active {
-            color: $color-primario;
-          }
+                    &>input:hover {
+                        border: 2px solid $color-primario;
+                    }
 
-          & > a:hover {
-            text-decoration: underline;
-          }
+                    &>input:focus {
+                        outline: none;
+                    }
 
-          & > button {
-            background-color: $color-boton;
-            color: white;
-            font-weight: 600;
-            font-size: 4.1vw;
-            border: none;
-            border-radius: 30px;
-            padding-top: 3.5vw;
-            padding-bottom: 3.5vw;
-            cursor: pointer;
-          }
+                    &>a {
+                        text-decoration: none;
+                        color: $color-neutro1;
+                        font-weight: bold;
+                        font-size: 4vw;
+                        align-self: flex-end;
+                        margin: 3vw 4vw 5vw 0vh;
+                    }
 
-          & > button:hover {
-            background-color: $color-boton-hover;
-          }
+                    &>a:active {
+                        color: $color-primario;
+                    }
 
-          & > button:active {
-            background-color: $color-boton-active;
-          }
+                    &>a:hover {
+                        text-decoration: underline;
+                    }
+
+                    &>button {
+                        background-color: $color-boton;
+                        color: white;
+                        font-weight: 600;
+                        font-size: 4.1vw;
+                        border: none;
+                        border-radius: 30px;
+                        padding-top: 3.5vw;
+                        padding-bottom: 3.5vw;
+                        cursor: pointer;
+                    }
+
+                    &>button:hover {
+                        background-color: $color-boton-hover;
+                    }
+
+                    &>button:active {
+                        background-color: $color-boton-active;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
 
 @mixin header {
-  @include for-desktop {
-    //===999 max====//
-    display: flex;
-    width: 90%;
-    padding: 20px 100px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $color-primario;
 
-    & > .img-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      & > .img-logo {
-        width: 40px;
-        height: 40px;
-      }
-
-      & > .img-letter {
-        width: 118px;
-        height: 40px;
-      }
-    }
-
-    & > .user-container {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      & > .img-notification {
-        width: 24px;
-        height: 24px;
-      }
-
-      & > .img-user {
-        width: 32px;
-        height: 32px;
-      }
-
-      & > p {
+    @include for-desktop {
+        //===999 max====//
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: 8px;
-        color: #ffff;
-      }
+        width: 90%;
+        padding: 20px 100px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-primario;
+
+        &>.img-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &>.img-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            &>.img-letter {
+                width: 118px;
+                height: 40px;
+            }
+        }
+
+        &>.user-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            &>.img-notification {
+                width: 24px;
+                height: 24px;
+            }
+
+            &>.img-user {
+                width: 32px;
+                height: 32px;
+            }
+
+            &>p {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 8px;
+                color: #FFFF;
+            }
+        }
     }
-  }
 
-  @include for-phone-tablet-only {
-    //=======999 min=======//
-    display: flex;
-    width: 100%;
-    padding: 20px;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-    background-color: $color-primario;
-
-    & > .img-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-
-      & > .img-logo {
-        width: 80px;
-        height: 80px;
-      }
-
-      & > .img-letter {
-        width: 118px;
-        height: 40px;
-      }
-    }
-
-    & > .user-container {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      & > .img-notification {
-        width: 24px;
-        height: 24px;
-      }
-
-      & > .img-user {
-        width: 32px;
-        height: 32px;
-      }
-
-      & > p {
+    @include for-phone-tablet-only {
+        //=======999 min=======//
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: 8px;
-        color: #ffff;
-      }
+        width: 100%;
+        padding: 20px;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+        background-color: $color-primario;
+
+        &>.img-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            &>.img-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            &>.img-letter {
+                width: 118px;
+                height: 40px;
+            }
+        }
+
+        &>.user-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            &>.img-notification {
+                width: 24px;
+                height: 24px;
+            }
+
+            &>.img-user {
+                width: 32px;
+                height: 32px;
+            }
+
+            &>p {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 8px;
+                color: #FFFF;
+            }
+        }
     }
-  }
 
-  @include for-phone-only() {
-    //====600 min==//
-    display: flex;
-    width: 100%;
-    padding: 20px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: $color-primario;
-
-    & > .img-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-
-      & > .img-logo {
-        width: 80px;
-        height: 80px;
-      }
-
-      & > .img-letter {
-        width: 118px;
-        height: 40px;
-      }
-    }
-
-    & > .user-container {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      & > .img-notification {
-        width: 24px;
-        height: 24px;
-      }
-
-      & > .img-user {
-        width: 32px;
-        height: 32px;
-      }
-
-      & > p {
+    @include for-phone-only() {
+        //====600 min==//
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: 8px;
-        color: #ffff;
-      }
+        width: 100%;
+        padding: 20px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: $color-primario;
+
+        &>.img-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            &>.img-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            &>.img-letter {
+                width: 118px;
+                height: 40px;
+            }
+        }
+
+        &>.user-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            &>.img-notification {
+                width: 24px;
+                height: 24px;
+            }
+
+            &>.img-user {
+                width: 32px;
+                height: 32px;
+            }
+
+            &>p {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 8px;
+                color: #FFFF;
+            }
+        }
     }
-  }
 }
 
 @mixin navBar {
-  a {
-    text-decoration: none;
-    color: #ffff;
-  }
-
-  a:hover {
-    color: #b4e501;
-    cursor: pointer;
-  }
-
-  ul {
-    margin: 0;
-  }
-
-  li {
-    text-align: start;
-    color: #ffff;
-  }
-
-  li:hover {
-    color: #b4e501;
-  }
-
-  li:active {
-    color: #b4e501;
-  }
-
-  @include for-desktop {
-    //===999 max====//
-    display: flex;
-    height: 100%;
-    padding: 24px 16px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: $color-secundario;
-    position: absolute;
-
-    #logout {
-      margin-top: 3vh;
+    a {
+        text-decoration: none;
+        color: #FFFF;
     }
 
-    & > .title-corner {
-      margin: 0;
-      color: #ffff;
-      font-weight: 700;
+    a:hover {
+        color: #B4E501;
+        cursor: pointer;
     }
 
-    & > .title-ul {
-      display: flex;
-      flex-direction: row;
-      color: #ffff;
-      align-items: center;
-      gap: 15px;
-      margin: 0;
+    ul {
+        margin: 0;
     }
 
-    & > .title-ul:hover {
-      color: #b4e501;
-    }
-  }
+    li {
+        text-align: start;
+        color: #FFFF;
 
-  @include for-phone-tablet-only {
-    //=======999 min=======//
-    display: flex;
-    width: 100%;
-    padding: 24px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: $color-secundario;
-
-    & > .title-corner {
-      margin: 0;
-      color: #ffff;
-      font-weight: 700;
     }
 
-    & > .title-ul {
-      display: flex;
-      flex-direction: row;
-      color: #ffff;
-      align-items: center;
-      gap: 15px;
-      margin: 0;
+    li:hover {
+        color: #B4E501;
     }
 
-    & > .title-ul:hover {
-      color: #b4e501;
+    li:active {
+        color: #B4E501;
     }
-  }
 
-  @include for-phone-only() {
-    //====600 min==//
-  }
+    @include for-desktop {
+        //===999 max====//
+        display: flex;
+        height: 100%;
+        padding: 24px 16px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: $color-secundario;
+        position: absolute;
+
+        #logout {
+            margin-top: 3vh;
+        }
+
+        &>.title-corner {
+            margin: 0;
+            color: #FFFF;
+            font-weight: 700;
+        }
+
+        &>.title-ul {
+            display: flex;
+            flex-direction: row;
+            color: #FFFF;
+            align-items: center;
+            gap: 15px;
+            margin: 0;
+        }
+
+        &>.title-ul:hover {
+            color: #B4E501;
+        }
+
+    }
+
+    @include for-phone-tablet-only {
+        //=======999 min=======//
+        display: flex;
+        width: 100%;
+        padding: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-secundario;
+
+
+        &>.title-corner {
+            margin: 0;
+            color: #FFFF;
+            font-weight: 700;
+        }
+
+        &>.title-ul {
+            display: flex;
+            flex-direction: row;
+            color: #FFFF;
+            align-items: center;
+            gap: 15px;
+            margin: 0;
+        }
+
+        &>.title-ul:hover {
+            color: #B4E501;
+        }
+
+    }
+
+    @include for-phone-only() {
+        //====600 min==//
+    }
 }
 
 @mixin dashboard {
-  @include for-desktop {
-    //===999 max====//
-  }
 
-  @include for-phone-tablet-only {
-    //=======999 min=======//
-  }
+    @include for-desktop {
 
-  @include for-phone-only() {
-    //====600 min==//
-  }
+        //===999 max====//
+
+    }
+
+    @include for-phone-tablet-only {
+        //=======999 min=======//
+    }
+
+    @include for-phone-only() {
+        //====600 min==//
+    }
 }
 
 @mixin main {
-  @include for-desktop {
-    //===999 max====//
-    margin-left: 189px;
-    width: 90%;
-  }
 
-  @include for-phone-tablet-only {
-    //=======999 min=======//
-  }
+    @include for-desktop {
+        //===999 max====//
+        margin-left: 189px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FAFAFA;
 
-  @include for-phone-only() {
-    //====600 min==//
-  }
+    }
+
+    @include for-phone-tablet-only {
+        //=======999 min=======//
+    }
+
+    @include for-phone-only() {
+        //====600 min==//
+    }
 }
 
 @mixin ventasGeneral {
-  @include for-desktop {
-    //===999 max====//
-    & > .resumen {
+
+
+    img {
+        width: 100%;
+    }
+
+
+    @include for-desktop {
+
+        //===999 max====//
+        &>.resumen {
+            display: flex;
+            padding: 16px 80px;
+            margin: 0px 100px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            gap: auto;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+            &>.item-resumen {
+                display: flex;
+                flex-direction: column;
+                &>.title {
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                    text-align: start;
+                }
+            }
+            &>.item-resumen>div {
+                color: #23AA3E;
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                
+                &>.valores {
+                    font-size: 2rem;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                }
+                &>.porcentaje {
+                    font-size: 1rem;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                }
+            }
+
+
+        }
+
+        &>.items-productos {
+            display: flex;
+            padding: 16px 0;
+            margin: 0px 100px;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+
+
+            &>.item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: start;
+                gap: 8px;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+                padding: 20px;
+
+                &>.imagenes {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 8px;
+
+                    &>.gadgets {
+                        width: 59px;
+                        height: 64px;
+                    }
+
+                    &>.product {
+                        width: 120px;
+                        height: 120px;
+                        margin-bottom: 10px;
+                    }
+
+                }
+            }
+        }
+
+        &>.graph-ventas-general {
+
+            padding: 16px 80px;
+            margin: 0px 100px;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+        }
+
+    }
+
+    @include for-phone-tablet-only {
+
+        //=======999 min=======//
+        &>.resumen {
+            display: flex;
+            padding: 16px 80px;
+            margin: 0px 100px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+            &>.item-resumen {
+                display: flex;
+                flex-direction: column;
+            }
+
+            &>.item-resumen>div {
+                color: #23AA3E;
+                display: flex;
+                gap: 10px;
+            }
+
+        }
+
+        &>.items-productos {
+            display: flex;
+            padding: 16px 0;
+            margin: 0px 100px;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+
+
+            &>.item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: start;
+                gap: 8px;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+                padding: 20px;
+
+                &>.imagenes {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 8px;
+
+                    &>.gadgets {
+                        width: 59px;
+                        height: 64px;
+                    }
+
+                    &>.product {
+                        width: 120px;
+                        height: 120px;
+
+                    }
+
+                }
+            }
+        }
+
+        &>.graph-ventas-general {
+
+            padding: 16px 80px;
+            margin: 0px 100px;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+        }
+    }
+
+    @include for-phone-only() {
+
+        //====600 min==//
+        &>.resumen {
+            display: flex;
+            padding: 16px 80px;
+            margin: 0px 100px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+
+            &>.item-resumen {
+                display: flex;
+                flex-direction: column;
+            }
+
+            &>.item-resumen>div {
+                color: #23AA3E;
+                display: flex;
+                gap: 10px;
+            }
+
+        }
+
+        &>.items-productos {
+            display: flex;
+            padding: 16px 0;
+            margin: 0px 100px;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+
+
+            &>.item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: start;
+                gap: 8px;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+                padding: 20px;
+
+                &>.imagenes {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 8px;
+                    margin: 10px;
+
+                    &>.gadgets {
+                        width: 59px;
+                        height: 64px;
+                    }
+
+                    &>.product {
+                        width: 120px;
+                        height: 120px;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+@mixin vitrina {
+    margin-left: 189px;
+    width: 90%;
+  
+    .listCategory {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 100px;
+      li a {
+          text-decoration: none;
+          color: $color-primario;
+      }
+    }
+  
+    .barchart-container {
       display: flex;
       padding: 16px 80px;
       margin: 0px 100px;
@@ -699,60 +987,10 @@
       align-items: center;
       border-radius: 8px;
       background: #fff;
-      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16),
-        0px 3px 6px 0px rgba(0, 0, 0, 0.23);
-
-      & > .item-resumen {
-        display: flex;
-        flex-direction: column;
-      }
-      & > .item-resumen > div {
-        color: #23aa3e;
-        display: flex;
-        gap: 10px;
+      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  
+      .barchart {
+        width: 50%;
       }
     }
   }
-  @include for-phone-tablet-only {
-    //=======999 min=======//
-    background-color: #23aa3e;
-  }
-
-  @include for-phone-only() {
-    //====600 min==//
-    background-color: yellow;
-  }
-}
-
-@mixin vitrina {
-  margin-left: 189px;
-  width: 90%;
-    
-  .listCategory {
-    list-style: none;  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 100px;
-    li a {
-        text-decoration: none;
-        color: $color-primario;
-    }
-  }
-
-  .barchart-container {
-    display: flex;
-    padding: 16px 80px;
-    margin: 0px 100px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-
-    .barchart {
-      width: 50%;
-    }
-  }
-}
