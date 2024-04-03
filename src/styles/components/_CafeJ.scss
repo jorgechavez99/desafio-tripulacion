@@ -1,0 +1,5 @@
+@import "../utils/mixins.scss";
+
+.analiticas-cafe-main-container {
+    @include analitics-container;
+}

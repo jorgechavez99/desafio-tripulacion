@@ -43,6 +43,53 @@
             font-size: 1.8rem;
         }
 
+        & > .graphic-products-container {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            & > .products-container {
+                width: 18%;
+                background-color: #F3EDF8;
+                min-height: 62.5vh;
+                border-radius: 8px;
+                padding: 15px;
+                box-shadow: 2px 2px 2px rgb(192, 192, 192);
+
+                margin-left: 30px;
+
+                & > h2 {
+                    font-size: 1rem;
+                    margin: 0;
+                    margin-top: 10px;
+                    margin-bottom: 25px;
+                }
+
+                & > p {
+                    margin: 0;
+                    margin-bottom: 10px;
+                    text-align: left;
+                    margin-left: 10px;
+                }
+
+                & > p:hover {
+                    color: $color-boton;
+                    cursor: pointer;
+                }
+                
+            }
+            
+            & > .graphic {
+                width: 60%;
+                margin-left: 5%;
+                padding: 1%;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+            }
+        }
+
         & > .categories {
             width: 50%;
             display: flex;
@@ -65,15 +112,17 @@
             & > a:hover {
                 border-bottom: 2px solid #B4E501;
             }
-        }
 
-        & > .graphic {
-            width: 60%;
-            margin-left: 5%;
-            padding: 1%;
-            border-radius: 8px;
-            background: #FFF;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
+            & > p {
+                text-decoration: none;
+                font-weight: bold;
+                color: $color-primario;
+                cursor: pointer;
+            }
+
+            & > p:hover {
+                border-bottom: 2px solid #B4E501;
+            }
         }
     }
 }

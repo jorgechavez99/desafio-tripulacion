@@ -83,37 +83,41 @@ const Cafe = () => {
         <Link to={ "/ventas/analiticas/vitrina" }>Vitrina inteligente</Link>
       </div>
 
-      <div className='graphic'>
-      <Bar options={{
-          scales: {
-            x: {
-              grid: {
-                drawOnChartArea: false,
-              }
-            }
-          },
-          responsive: true,
-          plugins: {
-            legend: {
-              position: "top",
-            },
-          },
-        }} data={{
-          labels: analiticData.days,
-          datasets: [
-            {
-              label: "Ventas totales de los últimos 6 días",
-              data: analiticData.dataSemanaExtended,
-              backgroundColor: "#0090CB",
-            },
-            {
-              label: 'Pronostico de ventas en los próximos 6 dias',
-              data: analiticData.dataPrediccionExtended,
-              backgroundColor: "#EC8E55",
-            },
-          ],
-        }} />
+      <div className="graphic-products-container">
+        <div className='graphic'>
+          <Bar options={{
+              scales: {
+                x: {
+                  grid: {
+                    drawOnChartArea: false,
+                  }
+                }
+              },
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: "top",
+                },
+              },
+            }} data={{
+              labels: analiticData.days,
+              datasets: [
+                {
+                  label: "Ventas totales de los últimos 6 días",
+                  data: analiticData.dataSemanaExtended,
+                  backgroundColor: "#0090CB",
+                },
+                {
+                  label: 'Pronostico de ventas en los próximos 6 dias',
+                  data: analiticData.dataPrediccionExtended,
+                  backgroundColor: "#EC8E55",
+                },
+              ],
+            }} />
+        </div>
+
       </div>
+
     </article>
     </> }
   </section>;
