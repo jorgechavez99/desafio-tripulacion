@@ -20,6 +20,7 @@ const Vitrina = () => {
   // const { loading, object } = useVitrina(import.meta.env.VITE_ANALITICA_VITRINA);
   const {  days, vitrinaData, dataSemanaExtended, dataPrediccionExtended } = useVitrina();
 
+  console.log(dataPrediccionExtended)
   ChartJS.register(
     CategoryScale,
     LinearScale,

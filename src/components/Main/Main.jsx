@@ -10,7 +10,9 @@ import Analiticas from "./Ventas/Analiticas";
 import Lista from "./Clientes/Lista";
 import Corner from "./Corner/Corner";
 import Vitrina from "./Ventas/Vitrina/Vitrina";
+import Snacks from "./Ventas/Snacks/Snacks";
 import Cafe from "./Ventas/Cafe";
+
 
 const Main = () => {
   const { user, rol } = UserAuth();
@@ -28,6 +30,7 @@ const Main = () => {
         <Route path="/ventas/analiticas" element={ user ? rol === true ? <Analiticas /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas/cafe" element={ user ? rol === true ? <Cafe /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas/vitrina" element={ user ? rol === true ? <Vitrina /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
+        <Route path="/ventas/analiticas/snacks" element={ user ? rol === true ? <Snacks /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/cliente/segmentacion" element={ user ? rol === true ? <SegmentacionContainer /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/cliente/lista" element={ user ? rol === true ? <Lista /> : <Navigate to={ "/dashboard" } /> : <Navigate to={ "/" } /> } />
         <Route path="/*" element={ <Navigate to={ "/dashboard" } /> } />
