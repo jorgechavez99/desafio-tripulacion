@@ -824,7 +824,17 @@
 
     @include for-desktop {
 
+      
         //===999 max====//
+        &>.title-t {
+            text-align: start;
+            margin-left: 6.5rem;
+            color: #000;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%; /* 24px */
+        }
         &>.resumen {
             display: flex;
             padding: 16px 80px;
@@ -839,6 +849,7 @@
             &>.item-resumen {
                 display: flex;
                 flex-direction: column;
+
                 &>.title {
                     font-size: 16px;
                     font-style: normal;
@@ -847,18 +858,20 @@
                     text-align: start;
                 }
             }
+
             &>.item-resumen>div {
                 color: #23AA3E;
                 display: flex;
                 align-items: center;
                 gap: 30px;
-                
+
                 &>.valores {
                     font-size: 2rem;
                     font-style: normal;
                     font-weight: 700;
                     line-height: 150%;
                 }
+
                 &>.porcentaje {
                     font-size: 1rem;
                     font-style: normal;
@@ -890,6 +903,18 @@
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
                 padding: 20px;
 
+              
+
+                &>.title-img {
+                    color: var(--Neutros-900, #1A1A1A);
+                    /* H6 Bold */
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                    /* 30px */
+                }
+
                 &>.imagenes {
                     display: flex;
                     flex-direction: row;
@@ -897,9 +922,48 @@
                     align-items: center;
                     gap: 8px;
 
+                    &>.letters-u {
+                        color: var(--Semnticos-Warning, #C47F00);
+                        text-align: center;
+                        /* H4 Bold */
+                        font-family: Archivo;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 150%;
+                        /* 48px */
+                    }
+
+                    &>.letters-p {
+                        color: var(--Semnticos-Success, #23AA3E);
+                        text-align: center;
+                        /* H4 Bold */
+                        font-family: Archivo;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 150%;
+                        /* 48px */
+                    }
+
+                    &>.letters-m {
+                        color: var(--Semnticos-Danger, #B22C22);
+                        text-align: center;
+                        /* H4 Bold */
+                        font-family: Archivo;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 150%;
+                        /* 48px */
+                    }
+
                     &>.gadgets {
-                        width: 59px;
+                        width: 7rem;
                         height: 64px;
+                        display: flex;
+                        align-items: center;
+
                     }
 
                     &>.product {
@@ -921,6 +985,8 @@
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.23);
 
         }
+
+    
 
     }
 
