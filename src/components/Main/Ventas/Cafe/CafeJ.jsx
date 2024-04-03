@@ -5,7 +5,7 @@ import VentasChart from '../VentasChart'
 import { CornerSelected } from '../../../../context/CornerContext'
 import axios from 'axios'
 
-const Snacks = () => {
+const CafeJ = () => {
 
     const [resumen, setResumen] = useState("");
 
@@ -26,26 +26,26 @@ const Snacks = () => {
     const corner = cornerS;
 
 
-    const endpointGraficoVentas = import.meta.env.VITE_ANALITICAS_MAQUINA_ENDPOINT_REQUEST + corner + "&maquina=" + "snack";
+    const endpointGraficoVentas = import.meta.env.VITE_ANALITICAS_MAQUINA_ENDPOINT_REQUEST + corner + "&maquina=" + "cafe";
 
-    const endpointGraficoCategorias = import.meta.env.VITE_ANALITICAS_CATEGORIA_ENDPOINT_REQUEST + corner + "&maquina=" + "snack" + "&categoria=" + categoriaSelect;
+    const endpointGraficoCategorias = import.meta.env.VITE_ANALITICAS_CATEGORIA_ENDPOINT_REQUEST + corner + "&maquina=" + "cafe" + "&categoria=" + categoriaSelect;
 
-    const endpointGraficoProducto = import.meta.env.VITE_ANALITICAS_PRODUCTO_ENDPOINT_REQUEST + corner + "&maquina=" + "snack" + "&categoria=" + categoriaSelect + "&producto=" + product;
+    const endpointGraficoProducto = import.meta.env.VITE_ANALITICAS_PRODUCTO_ENDPOINT_REQUEST + corner + "&maquina=" + "cafe" + "&categoria=" + categoriaSelect + "&producto=" + product;
 
     console.log(endpointGraficoProducto)
 
-      
+
     const endpoint = categoriaSelect === "" ? endpointGraficoVentas : (product === "" ? endpointGraficoCategorias : endpointGraficoProducto)
 
 
     console.log("endpoint", endpoint)
 
-   
+
     useEffect(() => {
-        
+
 
         const fetchResumen = async () => {
-           
+
             try {
                 const result = await axios(endpoint, {
                     headers: {
@@ -57,7 +57,7 @@ const Snacks = () => {
                 // console.log(resumen)
 
             } catch (error) {
-                console.error('Error fetching snack: ', error);
+                console.error('Error fetching cafe: ', error);
             }
         };
         fetchResumen();
@@ -68,7 +68,7 @@ const Snacks = () => {
 
         ev.preventDefault()
 
-       
+
 
         const newCathegory = ev.target.value
 
@@ -88,89 +88,26 @@ const Snacks = () => {
 
 
     const categorias = [
-        "agua",
-        "alimento",
-        "bebida-alcoholica",
-        "bebida-carbonatada",
-        "bebida-no-carbonatada",
-        "bebida-energizante",
-        "chocolatina",
-        "galletas",
-        "lacteos",
-        "snack-dulce",
-        "snack-salado"
+        "cafe",
+        "descafeinado",
     ]
 
 
     const productos = {
-        "agua": ["agua"],
-
-        "alimento": ["briote-jamon-queso", "humus"],
-
-        "bebida-alcoholica": ["mahou"],
-
-        "bebida-carbonatada": ["coca-cola-original-botella",
-            "coca-cola-original-lata",
-            "coca-cola-zero-botella",
-            "coca-cola-zero-lata",
-            "coca-cola-zero-zero-botella"
+        "cafe": ["cafe-americano",
+            "cafe-capuccino",
+            "cafe-con-leche",
+            "cafe-cortado",
+            "cafe-solo",
         ],
 
-        "bebida-no-carbonatada": ["aloe-vera",
-            "aloe-vera-mango",
-            "aloe-vera-verde",
-            "aquarius-naranja",
-            "bifrutas",
-            "nestea-sin"
-        ],
-
-        "bebida-energizante": ["monster",
-            "monster-zero",
-            "monster-sin-blanco",
-            "redbull",
-            "redbull-sin-azucar",
-        ],
-
-        "chocolatina": ["huesitos",
-            "kinder-bueno",
-            "kinder-delice",
-            "kitkat",
-            "milka-tableta",
-            "tokke",
-            "twix"
-        ],
-
-        "galletas": ["chips-ahoy",
-            "choco-bom-blanco",
-            "choco-bom-choco-leche",
-            "elgorriaga",
-            "galletas-nocilla",
-            "galletas-oreo",
-            "galletas-príncipe",
-            "gullon-sin-gluten",
-            "natwins-yogur-y-chocolate"
-        ],
-
-        "lacteos": [
-            "cola-cao",
-            "milka-bebible"
-        ],
-
-        "snack-dulce": [
-            "barra-cereales-natura-valley",
-            "chicle",
-            "haribo",
-            "pistachos-choco"
-        ],
-
-        "snack-salado": ["almendra",
-            "mios-horneados",
-            "mios-maíz",
-            "platanitos-goya",
-            "risketos",
-            "ruffles-jamón",
-            "triskys",
-            "yuca-goya"
+        "descafeinado": [
+            "descafeinado-americano",
+            "descafeinado-capuccino",
+            "descafeinado-con-leche",
+            "descafeinado-cortado",
+            "descafeinado-corto",
+            "descafeinado-macchiato",
         ]
     }
 
@@ -184,7 +121,7 @@ const Snacks = () => {
                 </article>
 
                 <article className='analiticas-container'>
-                    <h1>Maquina de Snacks</h1>
+                    <h1>Maquina de Café</h1>
                     {/* <pre>{JSON.stringify(categoriaSelect)}</pre>
                     <pre>{JSON.stringify(product)}</pre> */}
                     <div className='machines-type'>
@@ -215,6 +152,7 @@ const Snacks = () => {
             </section>
         </div>
     )
+
 }
 
-export default Snacks
+export default CafeJ
