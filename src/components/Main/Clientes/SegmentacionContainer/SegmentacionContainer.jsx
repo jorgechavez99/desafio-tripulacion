@@ -18,7 +18,6 @@ const SegmentacionContainer = () => {
   const endpointDescripcion = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/descripcion";
   const endpointTop = import.meta.env.VITE_SEGMENTACION_ENDPOINT_REQUEST + corner + "/top";
 
-  console.log("Corner elegido desde Segmentacion: ", corner)
 
   // Function to group and sum volume data by period
   const groupAndSumByPeriod = (data) => {
