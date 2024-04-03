@@ -55,26 +55,26 @@ const Analiticas = () => {
 
       <article className='analiticas-container'>
         <h1>Analítica de ventas</h1>
-
-        <div className='machines-type'>
-          <Link to={"/ventas/analiticas/cafe"}>Máquina de café</Link>
+        <div className='categories'>
+          <Link to={ "/ventas/analiticas/cafe" }>Máquina de café</Link>
           <span>|</span>
           <Link to={"/ventas/analiticas/snacks"}>Máquina de snacks</Link>
           <span>|</span>
           <Link to={"/ventas/analiticas/vitrina"}>Vitrina inteligente</Link>
         </div>
 
+
         <div className='graph-container'>
           {resumen !== "" ? (
             <div className='ventas-graphic'>
               <VentasChart resumen={resumen} />
             </div>
-
           ) :
             <p>Cargando...</p>
 
           }
         </div>
+
       </article>
     </section>
   )
