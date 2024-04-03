@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 
 import {
   Chart as ChartJS,
@@ -17,8 +17,8 @@ import Breadcrumb from "../../Breadcrum/Breadcrum";
 
 const Vitrina = () => {
 
-  // const { loading, object } = useVitrina(import.meta.env.VITE_ANALITICA_VITRINA);
-  const {  days, vitrinaData, dataSemanaExtended, dataPrediccionExtended } = useVitrina();
+  const { loading, object } = useVitrina(import.meta.env.VITE_ANALITICA_VITRINA);
+  // const {  days, vitrinaData, dataSemanaExtended, dataPrediccionExtended } = useVitrina();
 
   console.log(dataPrediccionExtended)
   ChartJS.register(
@@ -56,7 +56,7 @@ const Vitrina = () => {
         </section>
 
 
-        {/* { loading ? <>
+        { loading ? <>
       <MutatingDots
         visible={true}
         height="100"
@@ -67,8 +67,8 @@ const Vitrina = () => {
         ariaLabel="mutating-dots-loading"
         wrapperStyle={{}}
         wrapperClass=""
-      /> */}
-    {/* </> : object.response ? <> */}
+      />
+    </> : object.response ? <>
         <section className="barchart-container">
           <Bar
             className="barchart"
@@ -89,20 +89,20 @@ const Vitrina = () => {
               },
             }}
             data={{
-              // labels: object.days,
-              labels: days,
+              labels: object.days,
+              // labels: days,
               datasets: [
                 {
                   label: 'Ventas totales de los últimos 6 dias',
-                  // data: object.dataSemanaExtended,
-                  data: dataSemanaExtended,
+                  data: object.dataSemanaExtended,
+                  // data: dataSemanaExtended,
                   backgroundColor: "#0090CB",
                   barThickness: 20,
                 },
                 {
                   label: 'Pronostico de ventas en los próximos 6 dias',
-                  // data: object.dataPrediccionExtended,
-                  data: dataPrediccionExtended,
+                  data: object.dataPrediccionExtended,
+                  // data: dataPrediccionExtended,
                   backgroundColor: "#EC8E55",
                   barThickness: 20,
                 }
@@ -111,7 +111,7 @@ const Vitrina = () => {
             
           />
         </section>
-        {/* </> : <></> } */}
+        </> : <></> }
 
       </section>
     </>

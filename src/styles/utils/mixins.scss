@@ -1034,7 +1034,8 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      margin: 20px 100px;
+      margin: 20px 0px;
+
       li a {
           text-decoration: none;
           color: $color-primario;
@@ -1054,5 +1055,11 @@
       .barchart {
         width: 50%;
       }
+    }
+    @include for-phone-tablet-only {
+
+    }
+    @include for-phone-only() {
+
     }
   }
