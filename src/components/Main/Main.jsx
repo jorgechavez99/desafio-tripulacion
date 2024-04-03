@@ -13,6 +13,7 @@ import Vitrina from "./Ventas/Vitrina/Vitrina";
 import Snacks from "./Ventas/Snacks/Snacks";
 import Cafe from "./Ventas/Cafe";
 import CafeJ from "./Ventas/Cafe/CafeJ";
+import VitrinaS from "./Ventas/Vitrina/VitrinaS";
 
 
 const Main = () => {
@@ -26,15 +27,17 @@ const Main = () => {
         <Route path="/users" element={ user ? rol? <Users /> : <Navigate to={ "/corner" } />: <Navigate to={ "/" }/> } />
         
         <Route path="/dashboard" element={ user ? <General /> : <Navigate to={ "/" } /> } />
+
         <Route path="/corner" element={ user ?  <Corner /> : <Navigate to={ "/" } /> }/>
         <Route path="/ventas/general" element={ user ? <General /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas" element={ user ? <Analiticas /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas/cafe" element={ user ?  <CafeJ /> : <Navigate to={ "/" } /> } />
-        <Route path="/ventas/analiticas/vitrina" element={ user ? <Vitrina /> : <Navigate to={ "/" } /> } />
+        <Route path="/ventas/analiticas/vitrina" element={ user ? <VitrinaS /> : <Navigate to={ "/" } /> } />
         <Route path="/ventas/analiticas/snacks" element={ user ? <Snacks /> : <Navigate to={ "/" } /> } />
         <Route path="/cliente/segmentacion" element={ user ? <SegmentacionContainer /> : <Navigate to={ "/" } /> } />
         <Route path="/cliente/lista" element={ user ?  <SegmentacionContainer /> : <Navigate to={ "/" } /> } />
         <Route path="/*" element={ user ?  <Navigate to={ "/corner" } /> : <Navigate to={ "/" } />} />
+
       </Routes>
     </main>
   );
