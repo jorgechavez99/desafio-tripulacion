@@ -34,8 +34,11 @@ const dataPrediccion = [];
 
 
 const datosDias = [...daysSemana, ...daysPrediccion];
-const datosResumen = [...dataSemana, ...dataPrediccion];
  
+const semana = [...dataSemana,...new Array(daysPrediccion.length).fill(0)]
+const prediccion = [...new Array(daysSemana.length).fill(0),...dataPrediccion]
+
+
   // const arrayX = ['L', 'M', 'X', 'J', 'V', 'S', 'L', 'M', 'X', 'J', 'V', 'S'];
   // const prediccion = [90, 80, 70, 60, 50, 60, 90, 80, 70, 60, 50, 60];
   
@@ -44,14 +47,12 @@ const datosResumen = [...dataSemana, ...dataPrediccion];
     animation : true,
     plugins : {
         legend : {
-            display : false
+            display : true,
+            position: "top",
         }
     },
     scales : {
-        y : {
-            min : 0,
-            max : 100
-        },
+        
         x: {
             ticks: { color: '#0D0D0D'}
         }
@@ -62,11 +63,16 @@ var midata = {
     labels: datosDias,
     datasets: [
        
-        {
-          label: 'Pronóstico de ventas en los próximos 6 días',
-          data: datosResumen,
-          backgroundColor: ['#0090CB','#0090CB','#0090CB','#0090CB','#0090CB','#0090CB','#EC8E55','#EC8E55','#EC8E55','#EC8E55','#EC8E55','#EC8E55']
-      }
+      {
+        label: 'Ventas totales de los ultimos 6 días',
+        data: semana,
+        backgroundColor: ['#0090CB']
+    },
+    {
+      label: 'Pronóstico de ventas en los próximos 6 días',
+      data: prediccion,
+      backgroundColor:['#EC8E55']
+    }
 
     ]
 };

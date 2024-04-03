@@ -9,7 +9,7 @@ const Analiticas = () => {
 
   const [resumen, setResumen] = useState("");
 
-  const { corner: cornerT} = CornerSelected();
+  const { corner: cornerT } = CornerSelected();
 
   let cornerS = "";
 
@@ -63,16 +63,18 @@ const Analiticas = () => {
           <span>|</span>
           <Link to={"/ventas/analiticas/vitrina"}>Vitrina inteligente</Link>
         </div>
-        {resumen !== "" ? (
-          <div className='ventas-graphic'>
-            <VentasChart resumen={resumen} />
-          </div>
 
-        ) :
-          <p>Cargando...</p>
+        <div className='graph-container'>
+          {resumen !== "" ? (
+            <div className='ventas-graphic'>
+              <VentasChart resumen={resumen} />
+            </div>
 
-        }
+          ) :
+            <p>Cargando...</p>
 
+          }
+        </div>
       </article>
     </section>
   )
