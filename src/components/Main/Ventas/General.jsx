@@ -142,7 +142,7 @@ let cornerS="";
           </h1>
           <div>
           </div>
-          <p>Resumen beneficios</p>
+          <p className='title-t'>Resumen beneficios</p>
           <article className='resumen '>
             <div className='item-resumen'>
               <p className='title'>Total diario</p>
@@ -168,59 +168,60 @@ let cornerS="";
             </div>
           </article>
 
-          <p>Productos destacados</p>
+          <p className='title-t'>Productos destacados</p>
           <article className='items-productos'>
             <div className='item'>
-              <p>{productos.producto_estrella.producto}</p>
+              <p className='title-img'>{productos.producto_estrella.producto}</p>
               <div className='imagenes'>
                 <div className='product'>
                   <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
                 </div>
-                <p>{productos.producto_estrella.porcentaje}u</p>
+                <p className='letters-u'>{productos.producto_estrella.porcentaje}u</p>
                 <div className='gadgets'>
                   <img id="liston" src={liston} alt="liston" />
                 </div>
               </div>
-              <p>{productos.producto_estrella.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p> <b>{productos.producto_estrella.unidades}</b>  Unidades vendidas con respecto a los ultimos 7 dias.</p>
             </div>
             <div className='item'>
 
-              <p>{productos.producto_mas_vendido.producto}</p>
+              <p className='title-img'>{productos.producto_mas_vendido.producto}</p>
               <div className='imagenes'>
                 <div className='product'>
                   {corner == "the-bridge" ? <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" />:
                   <img id="cafe_umbrella" src={mios_maiz} alt="cafe_umbrella" />
                   }
                 </div>
-                <p>{productos.producto_mas_vendido.porcentaje}%</p>
+                <p className='letters-p'>{productos.producto_mas_vendido.porcentaje}%</p>
                 <div className='gadgets'>
                   <img id="flecha_arriba" src={flecha_arriba} alt="flecha_arriba" />
                 </div>
               </div>
 
-              <p>{productos.producto_mas_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p> <b className='number'>{productos.producto_mas_vendido.unidades} </b> Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
             </div>
             <div className='item'>
 
-              <p>{productos.producto_menos_vendido.producto}</p>
+              <p className='title-img'>{productos.producto_menos_vendido.producto}</p>
               <div className='imagenes'>
                 <div className='product'>
                   <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
                 </div>
-                <p>{productos.producto_menos_vendido.porcentaje}%</p>
+                <p className='letters-m'>{productos.producto_menos_vendido.porcentaje}%</p>
                 <div className='gadgets'>
                   <img id="flecha_abajo" src={flecha_abajo} alt="flecha_abajo" />
                 </div>
               </div>
 
-              <p>{productos.producto_menos_vendido.unidades} Unidades vendidas con respecto a los ultimos 7 dias.</p>
+              <p> <b>{productos.producto_menos_vendido.unidades}</b>  Unidades vendidas con respecto a los ultimos 7 dias.</p>
 
             </div>
 
           </article>
+          <p className='title-t'>Analiticas de ventas</p>
           <article className='graph-ventas-general'>
-            <p>Analiticas de ventas</p>
+            <p >Analiticas de ventas</p>
             <VentasChart resumen={resumen} />
             {/* <BarChart /> */}
           </article>

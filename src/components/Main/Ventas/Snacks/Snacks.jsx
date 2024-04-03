@@ -34,18 +34,20 @@ const Snacks = () => {
 
     console.log(endpointGraficoProducto)
 
-      
-    const endpoint = categoriaSelect === "" ? endpointGraficoVentas : (product === "" ? endpointGraficoCategorias : endpointGraficoProducto)
+    let endpoint = ""
+
+    categoriaSelect ? product ?  endpoint= endpointGraficoProducto  : endpoint= endpointGraficoCategorias  : endpoint=endpointGraficoVentas
 
 
-    console.log("endpoint", endpoint)
 
-   
+
+    //si no hay categoria select lo 
+
     useEffect(() => {
-        
+
 
         const fetchResumen = async () => {
-           
+
             try {
                 const result = await axios(endpoint, {
                     headers: {
@@ -68,11 +70,13 @@ const Snacks = () => {
 
         ev.preventDefault()
 
-       
+
 
         const newCathegory = ev.target.value
 
         setCategoriaSelect(newCathegory)
+
+        setProduct("")
 
     }
 
