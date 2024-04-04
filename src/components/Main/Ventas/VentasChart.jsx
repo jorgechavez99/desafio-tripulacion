@@ -22,15 +22,15 @@ const dataSemana = [];
 const daysPrediccion = [];
 const dataPrediccion = [];
   
-  // Object.entries(resumen.semana).forEach(([clave, valor]) => {
-  //   daysSemana.push(clave);
-  //   dataSemana.push(valor);
-  // });
+  Object.entries(resumen.semana).forEach(([clave, valor]) => {
+    daysSemana.push(clave);
+    dataSemana.push(valor);
+  });
 
-  // Object.entries(resumen.prediccion).forEach(([clave, valor]) => {
-  //   daysPrediccion.push(clave);
-  //   dataPrediccion.push(valor);
-  // });
+  Object.entries(resumen.prediccion).forEach(([clave, valor]) => {
+    daysPrediccion.push(clave);
+    dataPrediccion.push(valor);
+  });
 
 
 const datosDias = [...daysSemana, ...daysPrediccion];
