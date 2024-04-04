@@ -233,7 +233,7 @@ const General = () => {
 
           ) : (
             // Puedes renderizar un componente o mensaje de relleno aquí
-            <p className='cargando'>Cargando...</p>
+            <p>Cargando...</p>
           )}
 
 
