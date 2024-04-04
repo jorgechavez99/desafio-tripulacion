@@ -7,6 +7,8 @@ import { Bar } from 'react-chartjs-2'
 
 const VitrinaS = () => {
 
+    const [activeProduct, setActiveProduct] = useState("")
+
     const [resumen, setResumen] = useState({});
 
     const [categoriaSelect, setCategoriaSelect] = useState("")
@@ -206,6 +208,7 @@ const VitrinaS = () => {
     }
 
     const changeCategory = (e) => {
+
         const paragraphText = e.target.innerText
 
         if(paragraphText == "Bocadillos y Sandwich Premium") {
@@ -221,12 +224,15 @@ const VitrinaS = () => {
       }
 
         setProduct("")
+        
     }
 
     const changeProduct = (e) => {
       const paragraphText = e.target.innerText
       const paragraphValue = productos[corner][categoriaSelect][paragraphText]
       setProduct(paragraphValue)
+      setActiveProduct(paragraphText)
+
     }
 
     return <section className="analiticas-cafe-main-container">
@@ -240,22 +246,22 @@ const VitrinaS = () => {
 
       <div className='categories'>
         { corner == "the-bridge" ? <>
-            <p onClick={ changeCategory }>Bocadillos y Sandwich Premium</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "bocadillos-y-sandwich-premium" ? "active" : ""}>Bocadillos y Sandwich Premium</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Platos preparados</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "platos-preparados" ? "active" : ""}>Platos preparados</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Tentempie</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "tentempie" ? "active" : ""}>Tentempie</p>
 
         </> : <>
-        <p onClick={ changeCategory }>Bocadillos y Sandwich Premium</p>
+        <p onClick={ changeCategory } className={categoriaSelect === "bocadillos-y-sandwich-premium" ? "active" : ""}>Bocadillos y Sandwich Premium</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Platos preparados</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "platos-preparados" ? "active" : ""}>Platos preparados</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Tentempie</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "tentempie" ? "active" : ""}>Tentempie</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Gazpachos y cremas</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "gazpachos-y-cremas" ? "active" : ""}>Gazpachos y cremas</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Postres y zumos</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "postres-y-zumos" ? "active" : ""}>Postres y zumos</p>
         </> }
       </div>
 
@@ -296,7 +302,7 @@ const VitrinaS = () => {
             <div className='products-container'>
                 <h2>Selecciona uno o varios productos:</h2>
 
-                { Object.keys(productos[corner][categoriaSelect]).map( (value, key) => <p key={ key } onClick={ changeProduct } >{ value }</p> ) }
+                { Object.keys(productos[corner][categoriaSelect]).map( (value, key) => <p key={ key } onClick={ changeProduct } className={activeProduct === value ? "active" : ""}>{ value }</p> ) }
             </div>
         </> }
       </div>
