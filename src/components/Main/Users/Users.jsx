@@ -91,10 +91,11 @@ const Users = () => {
     <>
       {rol &&
         <>
-          <Breadcrumb />
-          <section className="main-container">
 
-            <article className="tableUsers main-container">
+          <section className="usersContainer">
+            <Breadcrumb />
+            <article className="tableUsers">
+
               <h1>Panel de administración de usuarios</h1>
               <table>
                 <thead>

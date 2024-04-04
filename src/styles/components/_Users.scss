@@ -1,8 +1,12 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-.main-container {
-    @include main;
+.usersContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 216px;
+    padding-top: 90.4px;
+    background: #FAFAFA;
 }
 
 .crudContainer {
@@ -10,6 +14,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .actionCrud {
@@ -78,6 +85,8 @@
 .tableUsers table {
     width: 1053px; 
     table-layout: fixed; 
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 15px;
 }
 
