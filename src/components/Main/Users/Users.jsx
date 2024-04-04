@@ -94,7 +94,7 @@ const Users = () => {
           <Breadcrumb />
           <section className="main-container">
 
-            <article className="tableUsers">
+            <article className="tableUsers main-container">
               <h1>Panel de administración de usuarios</h1>
               <table>
                 <thead>
