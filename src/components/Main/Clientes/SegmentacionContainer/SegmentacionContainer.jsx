@@ -137,8 +137,12 @@ const SegmentacionContainer = () => {
 
   return (
     <>
-      <Breadcrumb />
+      
       <section className='mainContainer'>
+      <article className='breadcrum'>
+      <Breadcrumb />
+      </article>  
+
         <h1>Segmentación de clientes</h1>
         {descripcion !== "" && volumen !== "" && top !== "" ? (
           <>
