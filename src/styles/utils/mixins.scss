@@ -712,6 +712,9 @@
     li:active {
         color: #B4E501;
     }
+    .active-link {
+        color: #B4E501; 
+      }
 
     @include for-desktop {
         //===999 max====//
