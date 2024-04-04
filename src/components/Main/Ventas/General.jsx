@@ -129,14 +129,11 @@ let cornerS="";
 
   return (
     <>
+    <Breadcrum />
     <div className='main-container'>
-
- 
     <section className='main-ventasGeneral-container '>
       {facturacion !== "" && productos !== "" && resumen !== "" ? (
         <>    
-        
-          <Breadcrum />
           <h1>
             Overview
           </h1>

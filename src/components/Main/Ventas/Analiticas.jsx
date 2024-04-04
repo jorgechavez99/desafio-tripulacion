@@ -48,9 +48,10 @@ const Analiticas = () => {
 
 
   return (
+    <>
+    <Breadcrumb />
     <section className='analiticas-main-container'>
       <article className='breadcrum'>
-        <Breadcrumb />
       </article>
 
       <article className='analiticas-container'>
@@ -77,6 +78,7 @@ const Analiticas = () => {
 
       </article>
     </section>
+    </>
   )
 }
 
