@@ -65,7 +65,10 @@
       background-image: url("/assets/magnify.svg");
       background-size: 24px;
       background-repeat: no-repeat;
-      background-position: right;
+      background-position: calc(100% - 16px) center;
+    }
+    input:focus {
+      outline: none;
     }
   }
 
@@ -177,7 +180,10 @@
         background-image: url("/assets/magnify.svg");
         background-size: 24px;
         background-repeat: no-repeat;
-        background-position: right;
+        background-position: calc(100% - 16px) center;;
+      }
+      input:focus {
+        outline: none;
       }
     }
   
@@ -271,7 +277,10 @@
         background-image: url("/assets/magnify.svg");
         background-size: 24px;
         background-repeat: no-repeat;
-        background-position: right;
+        background-position: calc(100% - 16px) center;;
+      }
+      input:focus {
+        outline: none;
       }
     }
   
