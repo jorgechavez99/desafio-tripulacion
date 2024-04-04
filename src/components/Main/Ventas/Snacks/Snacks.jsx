@@ -297,11 +297,12 @@ const Snacks = () => {
 
     return <section className="analiticas-cafe-main-container">
         {loading ? <Loading /> : <>
-            <article className='breadcrum'>
-                <Breadcrumb />
-            </article>
+            
 
             <article className='analiticas-container'>
+                <article className='breadcrum'>
+                <Breadcrumb />
+            </article>
                 <h1>Máquina Snacks</h1>
 
                 <div className='categories'>
