@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import '/src/styles/components/_Corner.scss';
 import { CornerSelected } from "../../../context/CornerContext";
+import Header from "../../Header/Header";
 
 const Corner = () => {
 
@@ -14,8 +15,9 @@ const handlerSchiller = () => {
 }
   return (
     <>
+    
       <main className="main-corner-container">
-
+      <Header />
         <section className="title-container">
           <h2 className="font title">TAKE A MOMENT</h2>
           <p className="font subtitle">¿Dónde te refugias hoy?</p>

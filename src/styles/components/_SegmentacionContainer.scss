@@ -9,7 +9,14 @@
     justify-content: center;
     align-items: center;
     background:  #FAFAFA;
+    padding-top: 100px;
+
+    &>.breadcrum {
+        margin-left: 1%;
+        align-self: flex-start;
+    }
 }
+
 
 table {
     width: 1053px;

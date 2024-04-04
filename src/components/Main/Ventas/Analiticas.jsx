@@ -49,12 +49,14 @@ const Analiticas = () => {
 
   return (
     <>
-    <Breadcrumb />
+    
     <section className='analiticas-main-container'>
-      <article className='breadcrum'>
-      </article>
+     
 
       <article className='analiticas-container'>
+      <article className='breadcrum'>
+      <Breadcrumb />
+      </article>
         <h1>Analítica de ventas</h1>
         <div className='categories'>
           <Link to={ "/ventas/analiticas/cafe" }>Máquina de café</Link>
