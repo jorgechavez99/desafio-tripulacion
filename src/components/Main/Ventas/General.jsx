@@ -174,7 +174,7 @@ const General = () => {
               <p className='title-t'>Productos destacados</p>
               <article className='items-productos'>
                 <div className='item'>
-                  <p className='title-img'>{productos.producto_estrella.producto}</p>
+                  <p className='title-img'>{productos.producto_estrella.producto.replaceAll('-', ' ')}</p>
                   <div className='imagenes'>
                     <div className='product'>
                       <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
@@ -188,7 +188,7 @@ const General = () => {
                 </div>
                 <div className='item'>
 
-                  <p className='title-img'>{productos.producto_mas_vendido.producto}</p>
+                  <p className='title-img'>{productos.producto_mas_vendido.producto.replaceAll('-', ' ')}</p>
                   <div className='imagenes'>
                     <div className='product'>
                       {corner == "the-bridge" ? <img id="cafe_umbrella" src={pincho_tortilla} alt="cafe_umbrella" /> :
@@ -206,7 +206,7 @@ const General = () => {
                 </div>
                 <div className='item'>
 
-                  <p className='title-img'>{productos.producto_menos_vendido.producto}</p>
+                  <p className='title-img'>{productos.producto_menos_vendido.producto.replaceAll('-', ' ')}</p>
                   <div className='imagenes'>
                     <div className='product'>
                       <img id="cafe_umbrella" src={cafe_umbrellla} alt="cafe_umbrella" />
