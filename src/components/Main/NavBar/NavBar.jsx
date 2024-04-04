@@ -11,6 +11,7 @@ const NavBar = () => {
   const { user, rol, setRol, logOut } = UserAuth();
   const { corner } = CornerSelected();
 
+  // const [activeProduct, setActiveProduct] = useState("")
 
 
   const cerrarSesion = async () => {
@@ -49,13 +50,13 @@ const NavBar = () => {
       </div>
       <ul>
         <li>
-          <NavLink to="/ventas/general">General</NavLink>
+          <NavLink to="/ventas/general" className={({ isActive }) => (isActive ? "active-link" : "")}>General</NavLink>
         </li>
         <li>
-          <NavLink to="/ventas/analiticas">Analiticas</NavLink>
+          <NavLink to="/ventas/analiticas" className={({ isActive }) => (isActive ? "active-link" : "")}>Analiticas</NavLink>
         </li>
         <li>
-          <NavLink to="/dashboard">Beneficios</NavLink>
+          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active-link" : "")}>Beneficios</NavLink>
         </li>
       </ul>
 
@@ -65,10 +66,10 @@ const NavBar = () => {
       </div>
       <ul>
         <li>
-          <NavLink to="/cliente/segmentacion">Segmentacion</NavLink>
+          <NavLink to="/cliente/segmentacion" className={({ isActive }) => (isActive ? "active-link" : "")}>Segmentacion</NavLink>
         </li>
         <li>
-          <NavLink to="/cliente/lista">Lista</NavLink>
+          <NavLink to="/cliente/lista" className={({ isActive }) => (isActive ? "active-link" : "")}>Lista</NavLink>
         </li>
       </ul>
 
@@ -94,7 +95,7 @@ const NavBar = () => {
       {rol &&
       <div className="title-ul">
       <img id="user-rounded" src="assets/user-rounded.svg" alt="user-rounded" />
-          <NavLink to="/users">Usuarios</NavLink>
+          <NavLink to="/users" className={({ isActive }) => (isActive ? "active-link" : "")}>Usuarios</NavLink>
         </div>
       }
 
