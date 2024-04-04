@@ -6,6 +6,7 @@ import Loading from '../../Loading'
 import { Bar } from 'react-chartjs-2'
 
 const Snacks = () => {
+    const [activeProduct, setActiveProduct] = useState("");
 
     const [resumen, setResumen] = useState({});
 
@@ -261,6 +262,7 @@ const Snacks = () => {
 
         if (paragraphText == "Agua") {
             setCategoriaSelect("agua")
+            
         } else if (paragraphText == "Alimento") {
             setCategoriaSelect("alimento")
         } else if (paragraphText == "Bebida Alcoholica") {
@@ -290,6 +292,7 @@ const Snacks = () => {
         const paragraphText = e.target.innerText
         const paragraphValue = productos[corner][categoriaSelect][paragraphText]
         setProduct(paragraphValue)
+        setActiveProduct(paragraphText)
     }
 
     return <section className="analiticas-cafe-main-container">
@@ -303,47 +306,47 @@ const Snacks = () => {
 
                 <div className='categories'>
                     {corner == "the-bridge" ? <>
-                        <p onClick={changeCategory}>Agua</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "agua" ? "active" : ""}>Agua</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Alimento</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "alimento" ? "active" : ""}>Alimento</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida Alcoholica</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-alcoholica" ? "active" : ""}>Bebida Alcoholica</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida Carbonatada</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-carbonatada" ? "active" : ""}>Bebida Carbonatada</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida Energizante</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-energizante" ? "active" : ""}>Bebida Energizante</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida no Carbonatada</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-no-carbonatada" ? "active" : ""}>Bebida no Carbonatada</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Chocolatina</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "chocolatina" ? "active" : ""}>Chocolatina</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Galletas</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "galletas" ? "active" : ""}>Galletas</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Lacteos</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "lacteos" ? "active" : ""}>Lacteos</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Snack Dulce</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "snack-dulce" ? "active" : ""}>Snack Dulce</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Snack Salado</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "snack-salado" ? "active" : ""}>Snack Salado</p>
                     </> : <>
-                        <p onClick={changeCategory}>Agua</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "agua" ? "active" : ""}>Agua</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Alimento</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "alimento" ? "active" : ""}>Alimento</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida Carbonatada</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-carbonatada" ? "active" : ""}>Bebida Carbonatada</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida Energizante</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-energizante" ? "active" : ""}>Bebida Energizante</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Bebida no Carbonatada</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "bebida-no-carbonatada" ? "active" : ""}>Bebida no Carbonatada</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Chocolatina</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "chocolatina" ? "active" : ""}>Chocolatina</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Galletas</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "galletas" ? "active" : ""}>Galletas</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Lacteos</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "lacteos" ? "active" : ""}>Lacteos</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Snack Dulce</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "snack-dulce" ? "active" : ""}>Snack Dulce</p>
                         <span>|</span>
-                        <p onClick={changeCategory}>Snack Salado</p>
+                        <p onClick={changeCategory} className={categoriaSelect === "snack-salado" ? "active" : ""}>Snack Salado</p>
                     </>}
                 </div>
 
@@ -384,7 +387,7 @@ const Snacks = () => {
                         <div className='products-container'>
                             <h2>Selecciona uno o varios productos:</h2>
 
-                            {Object.keys(productos[corner][categoriaSelect]).map((value, key) => <p key={key} onClick={changeProduct} >{value}</p>)}
+                            {Object.keys(productos[corner][categoriaSelect]).map((value, key) => <p key={key} onClick={changeProduct} className={activeProduct === value ? "active" : ""}>{value}</p>)}
                         </div>
                     </>}
                 </div>

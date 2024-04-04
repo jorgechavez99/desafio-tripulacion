@@ -77,6 +77,11 @@
                     color: $color-boton;
                     cursor: pointer;
                 }
+                & > p.active {
+                    color: $color-boton;
+                    border-left: 2px solid #B4E501;
+                    padding: 0 5px;
+                }
                 
             }
             
@@ -121,6 +126,9 @@
             }
 
             & > p:hover {
+                border-bottom: 2px solid #B4E501;
+            }
+            & > p.active{
                 border-bottom: 2px solid #B4E501;
             }
         }

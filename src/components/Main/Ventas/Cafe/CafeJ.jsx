@@ -7,6 +7,8 @@ import { Bar } from 'react-chartjs-2'
 
 const CafeJ = () => {
 
+    const [activeProduct, setActiveProduct] = useState("")
+
     const [resumen, setResumen] = useState({});
 
     const [categoriaSelect, setCategoriaSelect] = useState("")
@@ -165,6 +167,7 @@ const CafeJ = () => {
       const paragraphText = e.target.innerText
       const paragraphValue = productos[corner][categoriaSelect][paragraphText]
       setProduct(paragraphValue)
+      setActiveProduct(paragraphText)
     }
 
     return <section className="analiticas-cafe-main-container">
@@ -178,17 +181,17 @@ const CafeJ = () => {
 
       <div className='categories'>
         { corner == "the-bridge" ? <>
-            <p onClick={ changeCategory }>Café</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "cafe" ? "active" : ""}>Café</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Descafeinado</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "descafeinado" ? "active" : ""}>Descafeinado</p>
         </> : <>
-            <p onClick={ changeCategory }>Café</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "cafe" ? "active" : ""}>Café</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Especialidades</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "especialidades" ? "active" : ""}>Especialidades</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Mocha</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "mocha" ? "active" : ""}>Mocha</p>
             <span>|</span>
-            <p onClick={ changeCategory }>Sin lactosa</p>
+            <p onClick={ changeCategory } className={categoriaSelect === "sin_lactosa" ? "active" : ""}>Sin lactosa</p>
         </> }
       </div>
 
@@ -229,7 +232,7 @@ const CafeJ = () => {
             <div className='products-container'>
                 <h2>Selecciona uno o varios productos:</h2>
 
-                { Object.keys(productos[corner][categoriaSelect]).map( (value, key) => <p key={ key } onClick={ changeProduct } >{ value }</p> ) }
+                { Object.keys(productos[corner][categoriaSelect]).map( (value, key) => <p key={ key } onClick={ changeProduct } className={activeProduct === value ? "active" : ""}>{ value }</p> ) }
             </div>
         </> }
       </div>
