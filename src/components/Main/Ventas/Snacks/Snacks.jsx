@@ -297,6 +297,7 @@ const Snacks = () => {
 
     return <section className="analiticas-cafe-main-container">
         {loading ? <Loading /> : <>
+
              <article className='breadcrum'>
                 <Breadcrumb />
             </article>
