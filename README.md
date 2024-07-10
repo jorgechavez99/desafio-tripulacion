@@ -1,5 +1,107 @@
 # desafio-tripulacion-umbrella-station
 
+# ENGLISH
+
+# Umbrella Station: Control Dashboard for Vending Corners
+
+## Description
+Dashboard that allows you to visualize and plan the control of various corners of a vending company.
+
+## Table of Contents
+- [Technology](#technology)
+- [Functionality](#functionality)
+- [Predictive and Segmentation Models](#predictive-and-segmentation-models)
+- [Data Visualization](#data-visualization)
+- [Authentication](#authentication)
+- [Role System](#role-system)
+- [Dependency Installation](#dependency-installation)
+- [Contact](#contact)
+
+## Technology
+By choosing React for our project, besides meeting a project requirement, we especially benefit from its ability to create Single Page Applications (SPA). This feature of React not only allows us to offer a smoother and faster user experience by eliminating full page reloads but also facilitates real-time data handling. By using React, we are leveraging its efficiency and modern approach to web development, resulting in a more agile and accessible application for users, significantly improving interaction and speed.
+
+## Functionality
+The dashboard provides an overview of the status and planning of various vending corners. It allows users to view and analyze real-time data, facilitating informed decision-making.
+
+## Predictive and Segmentation Models
+The dashboard consumes data from two models implemented in Flask APIs: a predictive model and a segmentation model. These models, designed by the Data Science team, provide valuable information for decision-making.
+
+## Data Visualization
+Different types of charts are used for better data visualization.
+
+For example, to visualize product sales predictions and adjust marketing strategies accordingly:
+
+```javascript
+// ChartJS example
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler
+);
+const midata = {
+    labels: datosDias,
+    datasets: [
+        {
+            label: 'Total sales in the last 6 days',
+            data: semana,
+            backgroundColor: ['#0090CB']
+        },
+        {
+            label: 'Sales forecast for the next 6 days',
+            data: prediccion,
+            backgroundColor: ['#EC8E55']
+        }
+    ]
+};
+```
+## Authentication
+Firebase Authentication provides a secure and convenient solution for user management in applications, offering integration with multiple authentication providers. Its ease of integration through friendly SDKs and the admin console allows efficient management and customization of the authentication flow, improving user experience by facilitating quick logins and automatic session handling. As part of the Firebase platform, it seamlessly integrates with other Firebase services, ensuring a scalable and robust solution for developers looking to implement advanced authentication features with minimal effort.
+
+## Role System
+Despite being a practically personal-use web page, a role system has been introduced, thinking of potential future applications.
+
+Additionally, we have created an extra layer of security by verifying emails against an authorized list stored in Firestore. This approach ensures that only users with pre-approved email addresses and assigned roles can access certain areas and functionalities of the application, providing granular control over permissions and access. By storing user roles and authorized email lists in Firestore, we leverage Firebase's capability to closely integrate authentication with the real-time database, facilitating dynamic permission management and updates. This strategy reinforces security and customizes the user experience, ensuring that each user has access only to the parts of the application that correspond to their authorization level, all while maintaining a high level of protection and compliance with best security practices.
+
+## Prerequisites
+To efficiently run and work with this project, we use the following tools:
+
+- **Node.js**: The base of our development environment. Node.js is essential for running npm. You can download it and get installation instructions at [nodejs.org](https://nodejs.org/).
+
+- **npm** (Node Package Manager): It comes with Node.js, but it's a good idea to verify that you have version 6.x or higher. npm is used to manage the project's dependencies. To check your version, you can run `npm -v` in your terminal.
+
+- **Babel**: Used to transpile ES6+ and JSX code to a browser-compatible format. You don't need to install Babel globally if it's already configured in the project, but it's crucial that the project includes it as a dependency for compilation.
+
+## Dependency Installation
+- axios
+- chart.js
+- cors
+- create-react-component-folder
+- dotenv
+- echarts
+- echarts-for-react
+- firebase
+- normalize.css
+- react
+- react-chartjs-2
+- react-dom
+- react-loader-spinner
+- react-router-dom
+- sass
+
+## Contact
+- Jorge Chavez Mirabal https://github.com/jorgechavez99
+- Carlos Chinchilla https://github.com/ChinchiGit
+- Santiago Vedia García  https://github.com/santivediap
+- Javier Magaña Tello https://github.com/JavierMagana9
+
+
+# SPANISH
+
 # Umbrella Station: Dashboard de Control para Corners de Vending
 
 ## Descripción
@@ -102,8 +204,8 @@ Para poder ejecutar y trabajar con este proyecto de manera eficiente, utilizamos
 
 
 ## Contacto
-Jorge Chavez Mirabal https://github.com/jorgechavez99
-Carlos Chinchilla https://github.com/ChinchiGit
-Santiago Vedia García  https://github.com/santivediap
-Javier Magaña Tello https://github.com/JavierMagana9
+- Jorge Chavez Mirabal https://github.com/jorgechavez99
+- Carlos Chinchilla https://github.com/ChinchiGit
+- Santiago Vedia García  https://github.com/santivediap
+- Javier Magaña Tello https://github.com/JavierMagana9
 
